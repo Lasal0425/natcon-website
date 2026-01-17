@@ -36,13 +36,13 @@ interface EmailData {
 function formatCartItemsForEmail(cartItems: CartItem[]): string {
   return cartItems.map(item => {
     let itemDescription = item.name;
-    
+
     if (item.isMerchPack) {
       // Format merch pack items
       const packDetails = [];
       if (item.tshirtSize) packDetails.push(`T-shirt Size: ${item.tshirtSize}`);
       if (item.wristbandColor) packDetails.push(`Wristband Color: ${item.wristbandColor}`);
-      
+
       if (packDetails.length > 0) {
         itemDescription += ` (${packDetails.join(', ')})`;
       }
@@ -52,7 +52,7 @@ function formatCartItemsForEmail(cartItems: CartItem[]): string {
       if (item.size) itemDescription += ` (Size: ${item.size})`;
       if (item.color) itemDescription += ` (Color: ${item.color})`;
     }
-    
+
     return `${itemDescription} - Qty: ${item.quantity} - ${item.price.toLocaleString()} LKR each`;
   }).join('\n');
 }
@@ -61,7 +61,7 @@ function formatCartItemsHTML(cartItems: CartItem[]): string {
   return cartItems.map(item => {
     let itemName = item.name;
     let itemSpecs = '';
-    
+
     if (item.isMerchPack) {
       const specs = [];
       if (item.tshirtSize) specs.push(`T-shirt: ${item.tshirtSize}`);
@@ -89,7 +89,7 @@ function formatCartItemsHTML(cartItems: CartItem[]): string {
 export async function POST(request: NextRequest) {
   try {
     const formData = await request.formData();
-    
+
     // Extract form fields
     const name = formData.get('name') as string;
     const email = formData.get('email') as string;
@@ -102,7 +102,7 @@ export async function POST(request: NextRequest) {
     const totalAmount = formData.get('totalAmount') as string;
     const orderDate = formData.get('orderDate') as string;
     const hasMerchPack = formData.get('hasMerchPack') === 'true';
-    
+
     // Parse cart items JSON for detailed processing
     let cartItemsData: CartItem[] = [];
     try {
@@ -111,11 +111,11 @@ export async function POST(request: NextRequest) {
     } catch (error) {
       console.error('Error parsing cart items JSON:', error);
     }
-    
+
     // Handle file upload
     const proofFile = formData.get('proofOfPurchase') as File;
     let attachment = null;
-    
+
     if (proofFile && proofFile.size > 0) {
       // Convert file to buffer for attachment
       const buffer = Buffer.from(await proofFile.arrayBuffer());
@@ -193,11 +193,11 @@ export async function POST(request: NextRequest) {
 
     const resend = new Resend(resendApiKey);
     const emailData: EmailData = {
-      from: 'NLDS Merch <onboarding@resend.dev>', // Resend's default domain
-      to: ['nldsmerch@gmail.com'], // Replace with your email
+      from: 'NatCon Merch <onboarding@resend.dev>', // Resend's default domain
+      to: ['natcon2026sl@gmail.com'], // Replace with your email
       // to: ['bimsaramadurapperuma2003@gmail.com'],
       replyTo: email,
-      subject: `NLDS 2025 Merch ${hasMerchPack ? '🎁 ' : ''}Order - ${name}`,
+      subject: `NatCon Merch ${hasMerchPack ? '🎁 ' : ''}Order - ${name}`,
       html: emailHtml,
     };
 
@@ -239,26 +239,26 @@ export async function POST(request: NextRequest) {
               </thead>
               <tbody>
                 ${cartItemsData.map(item => {
-                  let itemDisplay = item.name;
-                  if (item.isMerchPack) {
-                    const specs = [];
-                    if (item.tshirtSize) specs.push(`T-shirt: ${item.tshirtSize}`);
-                    if (item.wristbandColor) specs.push(`Wristband: ${item.wristbandColor}`);
-                    if (specs.length > 0) itemDisplay += ` (${specs.join(', ')})`;
-                    itemDisplay += ' 🎁';
-                  } else {
-                    if (item.size) itemDisplay += ` (${item.size})`;
-                    if (item.color) itemDisplay += ` (${item.color})`;
-                  }
-                  
-                  return `
+      let itemDisplay = item.name;
+      if (item.isMerchPack) {
+        const specs = [];
+        if (item.tshirtSize) specs.push(`T-shirt: ${item.tshirtSize}`);
+        if (item.wristbandColor) specs.push(`Wristband: ${item.wristbandColor}`);
+        if (specs.length > 0) itemDisplay += ` (${specs.join(', ')})`;
+        itemDisplay += ' 🎁';
+      } else {
+        if (item.size) itemDisplay += ` (${item.size})`;
+        if (item.color) itemDisplay += ` (${item.color})`;
+      }
+
+      return `
                     <tr style="border-bottom: 1px solid #eee;">
                       <td style="padding: 8px; font-size: 14px;">${itemDisplay}</td>
                       <td style="padding: 8px; text-align: center; font-size: 14px;">${item.quantity}</td>
                       <td style="padding: 8px; text-align: right; font-size: 14px; font-weight: bold;">${(item.price * item.quantity).toLocaleString()} LKR</td>
                     </tr>
                   `;
-                }).join('')}
+    }).join('')}
               </tbody>
             </table>
           ` : ''}
@@ -283,15 +283,15 @@ export async function POST(request: NextRequest) {
         <p>We will review your proof of purchase and contact you soon with further details.</p>
         
         <p style="text-align: center; margin-top: 30px;">
-          <strong>Thank you for choosing NLDS 2025 Store!</strong>
+          <strong>Thank you for choosing NatCon 2026 Store!</strong>
         </p>
       </div>
     `;
 
     await resend.emails.send({
-      from: 'NLDS Store <onboarding@resend.dev>',
+      from: 'NatCon Store <onboarding@resend.dev>',
       to: [email],
-      subject: `Order Confirmation ${hasMerchPack ? '🎁 ' : ''}- NLDS Store`,
+      subject: `Order Confirmation ${hasMerchPack ? '🎁 ' : ''}- NatCon Store`,
       html: customerEmailHtml,
     });
 

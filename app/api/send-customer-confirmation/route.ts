@@ -37,22 +37,22 @@ interface CustomerData {
 function generateOrderId(customerName: string, entity: string): string {
   // Clean customer name - remove spaces and special chars, take first 6 chars
   const cleanName = customerName.replace(/[^a-zA-Z0-9]/g, '').substring(0, 6).toUpperCase();
-  
+
   // Clean entity - remove spaces and special chars, take first 4 chars
   const cleanEntity = entity.replace(/[^a-zA-Z0-9]/g, '').substring(0, 4).toUpperCase();
-  
+
   // Generate timestamp in format YYYYMMDD-HHMMSS
   const now = new Date();
   const date = now.toISOString().slice(0, 10).replace(/-/g, ''); // YYYYMMDD
   const time = now.toTimeString().slice(0, 8).replace(/:/g, ''); // HHMMSS
-  
-  return `NLDS-${cleanName}-${cleanEntity}-${date}-${time}`;
+
+  return `NatCon-${cleanName}-${cleanEntity}-${date}-${time}`;
 }
 
 function generateOrderItemsSummary(cartItems: CartItem[]): string {
   return cartItems.map(item => {
     let itemText = item.name;
-    
+
     if (item.isMerchPack) {
       const packSpecs = [];
       if (item.tshirtSize) packSpecs.push(`Tee:${item.tshirtSize}`);
@@ -65,7 +65,7 @@ function generateOrderItemsSummary(cartItems: CartItem[]): string {
       if (item.color) specs.push(item.color);
       if (specs.length > 0) itemText += `(${specs.join(',')})`;
     }
-    
+
     return `${itemText} x${item.quantity}`;
   }).join(', ');
 }
@@ -97,7 +97,7 @@ async function saveOrderToDatabase(customerData: CustomerData) {
       created_at: now,
       updated_at: now,
     };
-    
+
     const orderResult = await db
       .insertInto('orders')
       .values(orderData)
@@ -152,7 +152,7 @@ async function updateEmailSentStatus(orderId: string, emailSent: boolean) {
   try {
     await db
       .updateTable('orders')
-      .set({ 
+      .set({
         email_sent: emailSent,
         updated_at: new Date()
       })
@@ -167,7 +167,7 @@ function formatCartItemsHTML(cartItems: CartItem[]): string {
   return cartItems.map(item => {
     let itemName = item.name;
     let itemSpecs = '';
-    
+
     if (item.isMerchPack) {
       const specs = [];
       if (item.tshirtSize) specs.push(`T-shirt: ${item.tshirtSize}`);
@@ -194,20 +194,20 @@ function formatCartItemsHTML(cartItems: CartItem[]): string {
 
 function generateEmailHTML(data: CustomerData): string {
   const hasMerchPack = data.cartItems.some(item => item.isMerchPack);
-  
+
   return `
     <!DOCTYPE html>
     <html lang="en">
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Order Confirmation - NLDS 2025</title>
+      <title>Order Confirmation - NacCon 2026</title>
     </head>
     <body style="margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f3f4f6;">
       <div style="max-width: 600px; margin: 0 auto; background-color: white;">
         <!-- Header -->
         <div style="background: linear-gradient(135deg, #1f2937 0%, #374151 100%); padding: 30px; text-align: center;">
-          <h1 style="color: white; margin: 0; font-size: 28px; font-weight: bold;">NLDS 2025</h1>
+          <h1 style="color: white; margin: 0; font-size: 28px; font-weight: bold;">NatCon 2026</h1>
           <p style="color: #d1d5db; margin: 10px 0 0 0; font-size: 16px;">Order Confirmation ${hasMerchPack ? '🎁' : ''}</p>
         </div>
 
@@ -228,13 +228,13 @@ function generateEmailHTML(data: CustomerData): string {
           <h3 style="color: #1f2937; margin: 0 0 20px 0; font-size: 20px; font-weight: 600;">Order Details</h3>
           <div style="background-color: #f9fafb; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
             <p style="margin: 0 0 8px 0; color: #374151;"><strong>Order ID:</strong> ${data.orderId}</p>
-            <p style="margin: 0 0 8px 0; color: #374151;"><strong>Order Date:</strong> ${new Date(data.orderDate).toLocaleDateString('en-US', { 
-              year: 'numeric', 
-              month: 'long', 
-              day: 'numeric',
-              hour: '2-digit',
-              minute: '2-digit'
-            })}</p>
+            <p style="margin: 0 0 8px 0; color: #374151;"><strong>Order Date:</strong> ${new Date(data.orderDate).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit'
+  })}</p>
             <p style="margin: 0; color: #374151;"><strong>Status:</strong> <span style="color: #059669; font-weight: 600;">Confirmed</span></p>
           </div>
 
@@ -245,7 +245,7 @@ function generateEmailHTML(data: CustomerData): string {
             <p style="margin: 0 0 8px 0; color: #374151;"><strong>Contact:</strong> ${data.contactNumber}</p>
             <p style="margin: 0 0 8px 0; color: #374151;"><strong>Address:</strong> ${data.homeAddress}</p>
             <p style="margin: 0 0 8px 0; color: #374151;"><strong>Entity:</strong> ${data.entity}</p>
-            <p style="margin: 0; color: #374151;"><strong>Attending NLDS 2025:</strong> ${data.attendingEvent ? 'Yes' : 'No'}</p>
+            <p style="margin: 0; color: #374151;"><strong>Attending NatCon 2026:</strong> ${data.attendingEvent ? 'Yes' : 'No'}</p>
           </div>
         </div>
 
@@ -301,7 +301,7 @@ function generateEmailHTML(data: CustomerData): string {
           <div style="background-color: #eff6ff; padding: 20px; border-radius: 8px; border-left: 4px solid #3b82f6;">
             <ul style="margin: 0; padding-left: 20px; color: #374151; line-height: 1.6;">
               <li style="margin-bottom: 8px;">We'll review your proof of purchase</li>
-              <li style="margin-bottom: 8px;">Once verified, we'll prepare your order for ${data.attendingEvent ? 'pickup at NLDS 2025' : 'delivery'}</li>
+              <li style="margin-bottom: 8px;">Once verified, we'll prepare your order for ${data.attendingEvent ? 'pickup at NatCon 2026' : 'delivery'}</li>
               ${hasMerchPack ? '<li style="margin-bottom: 8px;">Your merch pack items will be customized according to your selections</li>' : ''}
               <li>If you have any questions, please contact us with your Order ID</li>
             </ul>
@@ -315,14 +315,14 @@ function generateEmailHTML(data: CustomerData): string {
             If you have any questions about your order, please contact us and include your Order ID: <strong>${data.orderId}</strong>
           </p>
           <p style="color: #6b7280; margin: 0; font-size: 14px;">
-            Thank you for supporting NLDS 2025! 🎉
+            Thank you for supporting NatCon 2026! 🎉
           </p>
         </div>
 
         <!-- Footer -->
         <div style="padding: 20px; text-align: center; background-color: #1f2937;">
           <p style="color: #9ca3af; margin: 0; font-size: 12px;">
-            © 2025 NLDS. This is an automated message, please do not reply to this email.
+            © 2026 NatCon. This is an automated message, please do not reply to this email.
           </p>
         </div>
       </div>
@@ -334,9 +334,9 @@ function generateEmailHTML(data: CustomerData): string {
 export async function POST(request: NextRequest) {
   try {
     const data: Omit<CustomerData, 'orderId'> = await request.json();
-    
+
     console.log('Received order data:', data);
-    
+
     // Generate unique order ID with customer info
     const orderId = generateOrderId(data.name, data.entity);
     const customerData: CustomerData = { ...data, orderId };
@@ -358,8 +358,8 @@ export async function POST(request: NextRequest) {
 
     if (!mailjetApiKey || !mailjetSecret || !mailjetFrom) {
       await updateEmailSentStatus(orderId, false);
-      return NextResponse.json({ 
-        success: true, 
+      return NextResponse.json({
+        success: true,
         message: 'Order saved. Email service not configured.',
         orderId: orderId,
         dbOrderId: dbOrderId,
@@ -376,7 +376,7 @@ export async function POST(request: NextRequest) {
           {
             From: {
               Email: mailjetFrom,
-              Name: "NLDS 2025 Store"
+              Name: "NatCon 2026 Store"
             },
             To: [
               {
@@ -384,7 +384,7 @@ export async function POST(request: NextRequest) {
                 Name: customerData.name
               }
             ],
-            Subject: `Order Confirmation - ${orderId}${hasMerchPack ? ' 🎁' : ''} - NLDS 2025`,
+            Subject: `Order Confirmation - ${orderId}${hasMerchPack ? ' 🎁' : ''} - NatCon 2026`,
             HTMLPart: generateEmailHTML(customerData)
           }
         ]
@@ -395,8 +395,8 @@ export async function POST(request: NextRequest) {
     await updateEmailSentStatus(orderId, emailSent);
 
     if (emailSent) {
-      return NextResponse.json({ 
-        success: true, 
+      return NextResponse.json({
+        success: true,
         message: 'Order saved and confirmation email sent successfully',
         orderId: orderId,
         dbOrderId: dbOrderId,
@@ -404,8 +404,8 @@ export async function POST(request: NextRequest) {
       });
     } else {
       console.error('Mailjet error:', emailRequest.response.data);
-      return NextResponse.json({ 
-        success: false, 
+      return NextResponse.json({
+        success: false,
         message: 'Order saved but failed to send confirmation email',
         orderId: orderId,
         dbOrderId: dbOrderId
@@ -414,9 +414,9 @@ export async function POST(request: NextRequest) {
 
   } catch (error) {
     console.error('Error processing order:', error);
-    return NextResponse.json({ 
-      success: false, 
-      message: 'Internal server error' 
+    return NextResponse.json({
+      success: false,
+      message: 'Internal server error'
     }, { status: 500 });
   }
 }
