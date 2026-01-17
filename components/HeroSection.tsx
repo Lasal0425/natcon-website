@@ -14,7 +14,7 @@ export default function HeroSection() {
   });
 
   useEffect(() => {
-    const targetDate = new Date("2025-10-03T08:30:00").getTime();
+    const targetDate = new Date("2026-04-24T08:30:00").getTime();
 
     const calculateTimeLeft = () => {
       const now = new Date().getTime();
