@@ -12,7 +12,8 @@ export default function Home() {
       </Head>
       <div className="min-h-screen bg-black text-white">
         <Navbar />
-        <NotFound />
+        {/* <NotFound /> */}
+        <Cart />
       </div>
     </>
   );

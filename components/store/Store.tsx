@@ -93,8 +93,34 @@ export default function Store() {
     product: MerchItem,
     color?: string
   ) => {
-    // Disabled - all products out of stock
-    return;
+    const productDetails = MERCH_ITEMS.find(
+      (item) => item.name === productName
+    );
+
+    if (productDetails) {
+      const price =
+        typeof productDetails.price === "string"
+          ? parseFloat(productDetails.price.replace(/[^\d.-]/g, ""))
+          : productDetails.price;
+
+      addToCart({
+        name: productName,
+        price: price,
+        image: Array.isArray(productDetails.images)
+          ? productDetails.images[0]
+          : productDetails.images[0],
+        size,
+        quantity,
+        color,
+      });
+
+      const sizeText = size ? ` (${size})` : "";
+      const colorText = color ? ` - ${color}` : "";
+      setPopupMessage(
+        `${quantity} × ${productName}${sizeText}${colorText} added to your cart!`
+      );
+      setTimeout(() => setPopupMessage(null), 2500);
+    }
   };
 
   const handleViewCart = () => {
@@ -154,12 +180,6 @@ export default function Store() {
             className="w-3/4 sm:w-2/3 md:w-1/2 lg:w-auto h-auto hover:scale-105 hover:shadow-xl rounded-2xl transition-all duration-300 ease-in-out"
           />
         </div>
-
-        {/* Out of Stock Notice */}
-        {/* <div className="mb-12 bg-red-600/20 border-2 border-red-500 rounded-2xl p-6 text-center backdrop-blur-sm">
-          <h3 className="text-2xl font-bold text-red-400 mb-2">Currently Out of Stock</h3>
-          <p className="text-gray-300">All items are currently unavailable. Please check back later!</p>
-        </div> */}
 
         {/* Merch Packs Section */}
         {merchPacks.length > 0 && (
@@ -233,8 +253,8 @@ export default function Store() {
         {/* View Cart Button */}
         <div className="flex justify-center mt-12 pb-8">
           <button
-            disabled
-            className="bg-gray-600 text-gray-400 py-4 px-8 rounded-xl font-semibold text-lg cursor-not-allowed opacity-50"
+            onClick={handleViewCart}
+            className="bg-squid-teal hover:bg-squid-teal/80 text-white py-4 px-8 rounded-xl transition-all duration-300 font-semibold text-lg shadow-lg hover:shadow-xl hover:scale-105 border-2 border-white/20"
           >
             View Cart
           </button>
@@ -287,8 +307,7 @@ function MerchPackCard({
   const [touchStartX, setTouchStartX] = useState<number | null>(null);
 
   const handleQuantityChange = (increment: boolean) => {
-    // Disabled for out of stock
-    return;
+    setQuantity((prev) => (increment ? prev + 1 : Math.max(1, prev - 1)));
   };
 
   const handlePrevImage = () => {
@@ -342,11 +361,6 @@ function MerchPackCard({
           />
         </div>
 
-        {/* Out of Stock Badge */}
-        <div className="absolute top-4 right-4 bg-red-600 text-white px-4 py-2 rounded-lg font-bold text-sm shadow-lg">
-          OUT OF STOCK
-        </div>
-
         {/* Left Arrow */}
         {hasMultipleImages && (
           <button
@@ -380,14 +394,14 @@ function MerchPackCard({
 
         {/* T-Shirt Size Selector */}
         {product.sizes && (
-          <div className="space-y-3 opacity-50 pointer-events-none">
+          <div className="space-y-3">
             <div className="flex items-center justify-center gap-2">
               <label className="text-sm text-gray-300 block font-medium">
                 T-Shirt Size:
               </label>
               <button
                 onClick={onOpenSizeChart}
-                className="text-xs text-squid-teal hover:text-squid-teal/80 underline transition-colors duration-200 pointer-events-auto"
+                className="text-xs text-squid-teal hover:text-squid-teal/80 underline transition-colors duration-200"
               >
                 View Size Chart
               </button>
@@ -396,8 +410,12 @@ function MerchPackCard({
               {product.sizes.map((size) => (
                 <button
                   key={size}
-                  disabled
-                  className="px-4 py-2 rounded-lg text-sm font-medium bg-white/10 text-gray-300 cursor-not-allowed"
+                  onClick={() => setSelectedSize(size)}
+                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                    selectedSize === size
+                      ? "bg-pink-600 text-white shadow-lg scale-105"
+                      : "bg-white/10 text-gray-300 hover:bg-white/20 hover:scale-105"
+                  }`}
                 >
                   {size}
                 </button>
@@ -408,7 +426,7 @@ function MerchPackCard({
 
         {/* Wristband Color Selector */}
         {product.colors && (
-          <div className="space-y-3 opacity-50 pointer-events-none">
+          <div className="space-y-3">
             <label className="text-sm text-gray-300 block font-medium">
               Wristband Color:
             </label>
@@ -416,8 +434,12 @@ function MerchPackCard({
               {product.colors.map((color) => (
                 <button
                   key={color}
-                  disabled
-                  className="px-6 py-2 rounded-lg text-sm font-medium bg-white/10 text-gray-300 cursor-not-allowed"
+                  onClick={() => setSelectedColor(color)}
+                  className={`px-6 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                    selectedColor === color
+                      ? "bg-pink-600 text-white shadow-lg scale-105"
+                      : "bg-white/10 text-gray-300 hover:bg-white/20 hover:scale-105"
+                  }`}
                 >
                   {color}
                 </button>
@@ -427,10 +449,18 @@ function MerchPackCard({
         )}
 
         <button
-          disabled
-          className="w-full bg-gray-600 text-gray-400 py-4 px-6 rounded-xl font-bold text-lg cursor-not-allowed opacity-50"
+          onClick={() =>
+            onAddToCart(
+              product.name,
+              selectedSize,
+              quantity,
+              product,
+              selectedColor
+            )
+          }
+          className="w-full bg-gradient-to-r from-squid-teal to-squid-teal/60  text-white py-4 px-6 rounded-xl transition-all duration-300 font-bold text-lg shadow-lg hover:shadow-xl hover:scale-105"
         >
-          Out of Stock
+          Add to Cart
         </button>
       </div>
     </div>
@@ -464,8 +494,7 @@ function ProductCard({
   const [touchStartX, setTouchStartX] = useState<number | null>(null);
 
   const handleQuantityChange = (increment: boolean) => {
-    // Disabled for out of stock
-    return;
+    setQuantity((prev) => (increment ? prev + 1 : Math.max(1, prev - 1)));
   };
 
   const handlePrevImage = () => {
@@ -519,11 +548,6 @@ function ProductCard({
           />
         </div>
 
-        {/* Out of Stock Badge */}
-        <div className="absolute top-2 right-2 bg-red-600 text-white px-3 py-1 rounded-lg font-bold text-xs shadow-lg">
-          OUT OF STOCK
-        </div>
-
         {/* Left Arrow */}
         {hasMultipleImages && (
           <button
@@ -552,13 +576,13 @@ function ProductCard({
 
         {/* Size Selector */}
         {product.type === "tshirt" && product.sizes && (
-          <div className="space-y-2 opacity-50 pointer-events-none">
+          <div className="space-y-2">
             <div className="flex items-center justify-center gap-2">
               <label className="text-sm text-gray-300 block">Size:</label>
               {onOpenSizeChart && (
                 <button
                   onClick={onOpenSizeChart}
-                  className="text-xs text-squid-teal hover:text-squid-teal/80 underline transition-colors duration-200 pointer-events-auto"
+                  className="text-xs text-squid-teal hover:text-squid-teal/80 underline transition-colors duration-200"
                 >
                   View Size Chart
                 </button>
@@ -568,8 +592,12 @@ function ProductCard({
               {product.sizes.map((size) => (
                 <button
                   key={size}
-                  disabled
-                  className="px-3 py-1 rounded-lg text-sm font-medium bg-white/10 text-gray-300 cursor-not-allowed"
+                  onClick={() => setSelectedSize(size)}
+                  className={`px-3 py-1 rounded-lg text-sm font-medium transition-colors duration-200 ${
+                    selectedSize === size
+                      ? "bg-pink-600 text-white"
+                      : "bg-white/10 text-gray-300 hover:bg-white/20"
+                  }`}
                 >
                   {size}
                 </button>
@@ -579,12 +607,13 @@ function ProductCard({
         )}
 
         {/* Quantity Selector */}
-        <div className="space-y-2 opacity-50 pointer-events-none">
+        <div className="space-y-2">
           <label className="text-sm text-gray-300 block">Quantity:</label>
           <div className="flex items-center justify-center gap-3">
             <button
-              disabled
-              className="w-8 h-8 rounded-full bg-white/10 text-white flex items-center justify-center cursor-not-allowed"
+              onClick={() => handleQuantityChange(false)}
+              disabled={quantity <= 1}
+              className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 disabled:opacity-50 disabled:cursor-not-allowed text-white flex items-center justify-center transition-colors duration-200"
             >
               -
             </button>
@@ -592,8 +621,8 @@ function ProductCard({
               {quantity}
             </span>
             <button
-              disabled
-              className="w-8 h-8 rounded-full bg-white/10 text-white flex items-center justify-center cursor-not-allowed"
+              onClick={() => handleQuantityChange(true)}
+              className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors duration-200"
             >
               +
             </button>
@@ -601,10 +630,12 @@ function ProductCard({
         </div>
 
         <button
-          disabled
-          className="w-full bg-gray-600 text-gray-400 py-3 px-4 rounded-xl font-medium mt-auto cursor-not-allowed"
+          onClick={() =>
+            onAddToCart(product.name, selectedSize, quantity, product)
+          }
+          className="w-full bg-pink-600 hover:bg-pink-700 text-white py-3 px-4 rounded-xl transition-colors duration-300 font-medium mt-auto"
         >
-          Out of Stock
+          Add to Cart
         </button>
       </div>
     </div>
