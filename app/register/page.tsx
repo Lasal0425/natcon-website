@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import RegisterSection from "@/components/registration/Register";
 import RegistrationsClosed from "@/components/registration/RegistrationsClosed";
+import RegistrationsOpeningSoon from "@/components/registration/RegistrationsOpeningSoon";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -12,8 +13,9 @@ export default function Home() {
       </head>
       <div className="min-h-screen bg-black text-white">
       <Navbar />
-      <RegistrationsClosed />
+      {/* <RegistrationsClosed /> */}
       {/* <RegisterSection /> */}
+      <RegistrationsOpeningSoon />
       <Footer />
       
     </div>
