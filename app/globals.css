@@ -5,15 +5,15 @@ html {
 }
 
 :root {
-  --background: #0a0a0a;
-  --foreground: #ffffff;
-  --squid-pink-bright: #f44786;
-  --squid-pink: #ed1b76;
-  --squid-teal: #037a76;
-  --squid-tealbright: #249f9c;
-  --squid-yellow: #ffe66d;
-  --squid-dark: #1a1a1a;
-  --squid-gray: #2d2d2d;
+  --background: #031B40;
+  --foreground: #F0E2D4;
+  --squid-pink-bright: #C37526;
+  --squid-pink: #8D1D27;
+  --squid-teal: #115253;
+  --squid-tealbright: #115253;
+  --squid-yellow: #E4BB41;
+  --squid-dark: #031B40;
+  --squid-gray: #955B38;
 }
 
 @theme inline {
@@ -58,18 +58,23 @@ body {
   0% {
     transform: translate(0);
   }
+
   20% {
     transform: translate(-2px, 2px);
   }
+
   40% {
     transform: translate(-2px, -2px);
   }
+
   60% {
     transform: translate(2px, 2px);
   }
+
   80% {
     transform: translate(2px, -2px);
   }
+
   100% {
     transform: translate(0);
   }
@@ -81,7 +86,7 @@ body {
 
 /* Neon glow effect */
 .neon-glow {
-  text-shadow: 
+  text-shadow:
     0 0 5px currentColor,
     0 0 10px currentColor,
     0 0 15px currentColor,
@@ -89,8 +94,18 @@ body {
 }
 
 @keyframes fade-in-out {
-  0%, 100% { opacity: 0; transform: translateY(20px); }
-  10%, 90% { opacity: 1; transform: translateY(0); }
+
+  0%,
+  100% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  10%,
+  90% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .animate-fade-in-out {
