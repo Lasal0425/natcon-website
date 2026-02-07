@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, type ElementType } from "react";
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 
@@ -95,7 +95,7 @@ function PeopleIcon() {
 
 // ─── Animated counter hook ────────────────────────────────────────────────
 
-function useCounter(target, duration = 1800, active = false) {
+function useCounter(target: number, duration: number = 1800, active: boolean = false) {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
@@ -105,9 +105,9 @@ function useCounter(target, duration = 1800, active = false) {
     }
 
     const start = performance.now();
-    let frame;
+    let frame: number;
 
-    function step(now) {
+    function step(now: number) {
       const progress = Math.min((now - start) / duration, 1);
       // cubic ease-out
       const eased = 1 - Math.pow(1 - progress, 3);
@@ -130,7 +130,15 @@ const STATS = [
   { Icon: PeopleIcon, target: 350, suffix: "+", label: "Delegates" },
 ];
 
-function StatCard({ Icon, target, suffix, label, active }) {
+interface StatCardProps {
+  Icon: ElementType;
+  target: number;
+  suffix: string;
+  label: string;
+  active: boolean;
+}
+
+function StatCard({ Icon, target, suffix, label, active }: StatCardProps) {
   const count = useCounter(target, 1800, active);
 
   return (
@@ -160,7 +168,7 @@ function StatCard({ Icon, target, suffix, label, active }) {
 
 export default function AboutEvent() {
   // Ref on the stats grid so we trigger the counter exactly when it scrolls in
-  const statsRef = useRef(null);
+  const statsRef = useRef<HTMLDivElement>(null);
   const statsVisible = useInView(statsRef, { once: true, margin: "-60px" });
 
   return (
@@ -304,7 +312,7 @@ export default function AboutEvent() {
               </svg>
             </div>
             <h3 className="text-xl md:text-2xl font-bold font-mono text-center text-white group-hover:text-squid-pink transition-colors">
-              Citrus Hotel Waskaduva
+              Citrus Hotel Waskaduwa
             </h3>
           </div>
         </motion.a>
