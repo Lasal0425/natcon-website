@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Lottie from "lottie-react";
-import animatedLogo from "../public/animations/animated-bg-logo.json"; 
+import animatedLogo from "../public/animations/animated-bg-logo.json";
 
 export default function HeroSection() {
   // Countdown timer logic
