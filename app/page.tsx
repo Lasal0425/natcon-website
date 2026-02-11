@@ -9,8 +9,8 @@ export default function Home() {
   return (
     <>
       <head>
-        <title>NLDS 2025</title>
-        <meta name="NLDS 2025" content="National Leadership Development Seminar" />
+        <title>NatCon 2026</title>
+        <meta name="NatCon 2026" content="National Conference 2026" />
       </head>
       <div className="min-h-screen bg-black text-white">
         <Navbar />
