@@ -167,6 +167,7 @@ function StatCard({ Icon, target, suffix, label, active }: StatCardProps) {
 // ─── Main component ───────────────────────────────────────────────────────
 
 export default function AboutEvent() {
+  const COMING_SOON = true;
   // Ref on the stats grid so we trigger the counter exactly when it scrolls in
   const statsRef = useRef<HTMLDivElement>(null);
   const statsVisible = useInView(statsRef, { once: true, margin: "-60px" });
@@ -266,99 +267,121 @@ export default function AboutEvent() {
         </a>
       </motion.div>
 
-      {/* ── Watch Trailer ── */}
-      <motion.div
-        initial={{ opacity: 0, x: -50 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        className="text-center mb-10 font-mono"
-      >
-        <h2 className="text-4xl md:text-5xl font-extrabold tracking-wider text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">
-          Watch Trailer
-        </h2>
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true }}
-        className="max-w-5xl mx-auto mb-16 rounded-2xl overflow-hidden shadow-2xl border border-gray-800"
-      >
-        <div className="aspect-video w-full">
-          <iframe
-            className="w-full h-full"
-            src="https://www.youtube.com/embed/g5W1SHX7Pc8"
-            title="NatCon Trailer"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
-        </div>
-      </motion.div>
-
-      {/* ── Details (Location + Date) ── */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-12 font-mono">
-        <motion.a
-          whileHover={{ scale: 1.03 }}
-          href="https://www.citrusleisure.com/waskaduwa/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="w-full group"
-        >
-          <div className="bg-gray-900 border-2 border-squid-teal group-hover:border-squid-pink group-hover:shadow-[0_0_15px_rgba(141,29,39,0.5)] rounded-2xl p-8 flex flex-col items-center justify-center transition-all duration-300 ease-in-out h-full">
-            <div className="w-20 h-20 flex items-center justify-center border-2 border-squid-teal group-hover:border-squid-pink rounded-full mb-6 transition-colors duration-300">
-              <svg className="w-10 h-10 text-gray-300 group-hover:text-squid-pink transition-colors" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
-              </svg>
-            </div>
-            <h3 className="text-xl md:text-2xl font-bold font-mono text-center text-white group-hover:text-squid-pink transition-colors">
-              Citrus Hotel Waskaduwa
-            </h3>
-          </div>
-        </motion.a>
-
+      {/* ── Toggleable Sections ── */}
+      {COMING_SOON ? (
         <motion.div
-          whileHover={{ scale: 1.03 }}
-          className="bg-gray-900 border-2 border-squid-teal hover:border-squid-pink hover:shadow-[0_0_15px_rgba(141,29,39,0.5)] rounded-2xl p-8 flex flex-col items-center justify-center transition-all duration-300 ease-in-out h-full"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="max-w-4xl mx-auto text-center py-20"
         >
-          <div className="w-20 h-20 flex items-center justify-center border-2 border-squid-teal group-hover:border-squid-pink rounded-full mb-6 transition-colors duration-300">
-            <svg className="w-10 h-10 text-gray-300" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z" />
-            </svg>
+          <div className="relative p-12 rounded-3xl bg-gray-900/60 backdrop-blur-2xl border-2 border-dashed border-squid-pink/30 shadow-[0_0_50px_rgba(223,26,60,0.1)]">
+            <h2 className="text-4xl md:text-6xl font-black font-mono text-white mb-6 tracking-tighter uppercase italic">
+              Coming <span className="text-squid-pink">Soon</span>
+            </h2>
+            <div className="w-24 h-1 bg-squid-pink mx-auto mb-8 rounded-full shadow-[0_0_10px_rgba(223,26,60,0.8)]"></div>
+            <p className="text-gray-400 text-xl font-mono uppercase tracking-[0.2em]">
+              The Reveal is Approaching...
+            </p>
           </div>
-          <h3 className="text-xl md:text-2xl font-bold font-mono text-center text-white">April 24th - 26th</h3>
         </motion.div>
-      </div>
+      ) : (
+        <>
+          {/* ── Watch Trailer ── */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-10 font-mono"
+          >
+            <h2 className="text-4xl md:text-5xl font-extrabold tracking-wider text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">
+              Watch Trailer
+            </h2>
+          </motion.div>
 
-      {/* ── Watch Location Reveal ── */}
-      <motion.div
-        initial={{ opacity: 0, x: 50 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        className="text-center mb-10 font-mono pt-5"
-      >
-        <h2 className="text-4xl md:text-5xl font-extrabold tracking-wider text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">
-          Location Reveal
-        </h2>
-      </motion.div>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="max-w-5xl mx-auto mb-16 rounded-2xl overflow-hidden shadow-2xl border border-gray-800"
+          >
+            <div className="aspect-video w-full">
+              <iframe
+                className="w-full h-full"
+                src="https://www.youtube.com/embed/g5W1SHX7Pc8"
+                title="NatCon Trailer"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
+          </motion.div>
 
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true }}
-        className="max-w-5xl mx-auto mb-16 rounded-2xl overflow-hidden shadow-2xl border border-gray-800"
-      >
-        <div className="aspect-video w-full">
-          <iframe
-            className="w-full h-full"
-            src="https://www.youtube.com/embed/CHTtsI7xGx8"
-            title="Location Reveal"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
-        </div>
-      </motion.div>
+          {/* ── Details (Location + Date) ── */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-12 font-mono">
+            <motion.a
+              whileHover={{ scale: 1.03 }}
+              href="https://www.citrusleisure.com/waskaduwa/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full group"
+            >
+              <div className="bg-gray-900 border-2 border-squid-teal group-hover:border-squid-pink group-hover:shadow-[0_0_15px_rgba(141,29,39,0.5)] rounded-2xl p-8 flex flex-col items-center justify-center transition-all duration-300 ease-in-out h-full">
+                <div className="w-20 h-20 flex items-center justify-center border-2 border-squid-teal group-hover:border-squid-pink rounded-full mb-6 transition-colors duration-300">
+                  <svg className="w-10 h-10 text-gray-300 group-hover:text-squid-pink transition-colors" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl md:text-2xl font-bold font-mono text-center text-white group-hover:text-squid-pink transition-colors">
+                  Citrus Hotel Waskaduwa
+                </h3>
+              </div>
+            </motion.a>
+
+            <motion.div
+              whileHover={{ scale: 1.03 }}
+              className="bg-gray-900 border-2 border-squid-teal hover:border-squid-pink hover:shadow-[0_0_15px_rgba(141,29,39,0.5)] rounded-2xl p-8 flex flex-col items-center justify-center transition-all duration-300 ease-in-out h-full"
+            >
+              <div className="w-20 h-20 flex items-center justify-center border-2 border-squid-teal group-hover:border-squid-pink rounded-full mb-6 transition-colors duration-300">
+                <svg className="w-10 h-10 text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z" />
+                </svg>
+              </div>
+              <h3 className="text-xl md:text-2xl font-bold font-mono text-center text-white">April 24th - 26th</h3>
+            </motion.div>
+          </div>
+
+          {/* ── Watch Location Reveal ── */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-10 font-mono pt-5"
+          >
+            <h2 className="text-4xl md:text-5xl font-extrabold tracking-wider text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">
+              Location Reveal
+            </h2>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="max-w-5xl mx-auto mb-16 rounded-2xl overflow-hidden shadow-2xl border border-gray-800"
+          >
+            <div className="aspect-video w-full">
+              <iframe
+                className="w-full h-full"
+                src="https://www.youtube.com/embed/CHTtsI7xGx8"
+                title="Location Reveal"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
+          </motion.div>
+        </>
+      )}
     </section>
   );
 }

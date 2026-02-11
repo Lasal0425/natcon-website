@@ -12,11 +12,11 @@ export default function Home() {
         <meta name="Register" content="Register for NLDS 2025" />
       </head>
       <div className="min-h-screen bg-black text-white">
-      {/* <Navbar /> */}
-      <RoomSearch />
-      <Footer />
-      
-    </div>
+        {/* <Navbar /> */}
+        <RegisterSection />
+        <Footer />
+
+      </div>
     </>
   );
 }

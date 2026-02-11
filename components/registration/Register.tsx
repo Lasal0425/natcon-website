@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Script from "next/script";
 
 export default function RegisterSection() {
   return (
@@ -33,18 +34,20 @@ export default function RegisterSection() {
           />
         </div>
 
+
         {/* Inline Tally Form */}
         <div className="bg-squid-grey/80 rounded-2xl p-2 sm:p-4 md:p-8 shadow-lg backdrop-blur-md">
+          <Script src="https://tally.so/widgets/embed.js" />
           <iframe
-            src="https://tally.so/r/wgPje1"
+            data-tally-src="https://tally.so/r/gDqXN4?transparentBackground=1"
             width="100%"
-            height="600"
-            title="NLDS 2025 Contact Form"
-            className="rounded-lg w-full"
-            style={{ minHeight: "600px", border: "none" }}
-          >
-            Loading form...
-          </iframe>
+            height="100%"
+            frameBorder="0"
+            marginHeight={0}
+            marginWidth={0}
+            title="Web Project Intake Questionnaire"
+            className="w-full min-h-[600px]"
+          />
         </div>
       </div>
     </section>
