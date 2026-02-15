@@ -6,7 +6,7 @@ import { refreshmentsPartners } from "../../constants/Partners";
 export default function RefreshmentsPartners() {
   return (
     <section className="w-full py-12 flex flex-col items-center">
-      <h2 className="text-3xl font-bold text-squid-pink mb-8">Refreshments Partners</h2>
+      <h2 className="text-3xl font-bold text-natcon-red mb-8">Refreshments Partners</h2>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 max-w-6xl w-full px-6">
         {refreshmentsPartners.map((partner, index) => (
           <div
@@ -28,3 +28,4 @@ export default function RefreshmentsPartners() {
     </section>
   );
 }
+

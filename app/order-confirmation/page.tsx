@@ -1,20 +1,16 @@
-import Head from "next/head";
 import Navbar from "@/components/Navbar";
 import OrderConfirmation from "@/components/store/OrderConfirmation";
-import NotFound from "@/components/NotFound";
+
+export const metadata = {
+  title: "Order Confirmation | NatCon 2026",
+  description: "Thank you for your purchase!",
+};
 
 export default function Home() {
   return (
-    <>
-      <Head>
-        <title>Order Confirmation</title>
-        <meta name="OrderConfirmation" content="OrderConfirmation" />
-      </Head>
-      <div className="min-h-screen bg-black text-white">
-        <Navbar />
-                {/* <NotFound /> */}
-                <OrderConfirmation />
-      </div>
-    </>
+    <div className="min-h-screen bg-black text-white">
+      <Navbar />
+      <OrderConfirmation />
+    </div>
   );
 }

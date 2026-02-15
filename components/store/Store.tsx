@@ -44,7 +44,7 @@ function SizeChartModal({
 
   return (
     <div className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-      <div className="bg-squid-dark border-2 border-squid-teal rounded-2xl p-6 max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+      <div className="bg-natcon-blue border-2 border-natcon-green rounded-2xl p-6 max-w-2xl w-full max-h-[90vh] overflow-y-auto">
         {/* Header */}
         <div className="flex justify-between items-center mb-6">
           <h3 className="text-2xl font-bold text-white">{chart.title}</h3>
@@ -254,7 +254,7 @@ export default function Store() {
         <div className="flex justify-center mt-12 pb-8">
           <button
             onClick={handleViewCart}
-            className="bg-squid-teal hover:bg-squid-teal/80 text-white py-4 px-8 rounded-xl transition-all duration-300 font-semibold text-lg shadow-lg hover:shadow-xl hover:scale-105 border-2 border-white/20"
+            className="bg-natcon-green hover:bg-natcon-green/80 text-white py-4 px-8 rounded-xl transition-all duration-300 font-semibold text-lg shadow-lg hover:shadow-xl hover:scale-105 border-2 border-white/20"
           >
             View Cart
           </button>
@@ -270,7 +270,7 @@ export default function Store() {
 
       {/* Popup Message */}
       {popupMessage && (
-        <div className="fixed bottom-5 left-1/2 -translate-x-1/2 bg-squid-dark border-2 border-squid-teal text-white py-3 px-6 rounded-xl shadow-xl text-center z-50 animate-fade-in-out opacity-80">
+        <div className="fixed bottom-5 left-1/2 -translate-x-1/2 bg-natcon-blue border-2 border-natcon-green text-white py-3 px-6 rounded-xl shadow-xl text-center z-50 animate-fade-in-out opacity-80">
           {popupMessage}
         </div>
       )}
@@ -345,7 +345,7 @@ function MerchPackCard({
       : product.price;
 
   return (
-    <div className="bg-gradient-to-br from-squid-dark to-black backdrop-blur-lg border-2 border-squid-teal rounded-3xl overflow-hidden shadow-2xl hover:shadow-pink-500/20 transition-all duration-300 group flex flex-col lg:flex-row">
+    <div className="bg-gradient-to-br from-natcon-blue to-black backdrop-blur-lg border-2 border-natcon-green rounded-3xl overflow-hidden shadow-2xl hover:shadow-natcon-red/20 transition-all duration-300 group flex flex-col lg:flex-row">
       {/* Image container */}
       <div
         className="relative w-full lg:w-1/2 aspect-square lg:aspect-auto bg-white/5 p-6 flex items-center justify-center"
@@ -365,7 +365,7 @@ function MerchPackCard({
         {hasMultipleImages && (
           <button
             onClick={handlePrevImage}
-            className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-pink-600/80 hover:bg-pink-600 rounded-full transition-colors duration-200"
+            className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-natcon-red/80 hover:bg-natcon-red rounded-full transition-colors duration-200"
           >
             <div className="w-0 h-0 border-t-4 border-b-4 border-r-6 border-t-transparent border-b-transparent border-r-white"></div>
           </button>
@@ -375,7 +375,7 @@ function MerchPackCard({
         {hasMultipleImages && (
           <button
             onClick={handleNextImage}
-            className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-pink-600/80 hover:bg-pink-600 rounded-full transition-colors duration-200"
+            className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-natcon-red/80 hover:bg-natcon-red rounded-full transition-colors duration-200"
           >
             <div className="w-0 h-0 border-t-4 border-b-4 border-l-6 border-t-transparent border-b-transparent border-l-white"></div>
           </button>
@@ -401,7 +401,7 @@ function MerchPackCard({
               </label>
               <button
                 onClick={onOpenSizeChart}
-                className="text-xs text-squid-teal hover:text-squid-teal/80 underline transition-colors duration-200"
+                className="text-xs text-natcon-green hover:text-natcon-green/80 underline transition-colors duration-200"
               >
                 View Size Chart
               </button>
@@ -413,7 +413,7 @@ function MerchPackCard({
                   onClick={() => setSelectedSize(size)}
                   className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                     selectedSize === size
-                      ? "bg-pink-600 text-white shadow-lg scale-105"
+                      ? "bg-natcon-red text-white shadow-lg scale-105"
                       : "bg-white/10 text-gray-300 hover:bg-white/20 hover:scale-105"
                   }`}
                 >
@@ -437,7 +437,7 @@ function MerchPackCard({
                   onClick={() => setSelectedColor(color)}
                   className={`px-6 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                     selectedColor === color
-                      ? "bg-pink-600 text-white shadow-lg scale-105"
+                      ? "bg-natcon-red text-white shadow-lg scale-105"
                       : "bg-white/10 text-gray-300 hover:bg-white/20 hover:scale-105"
                   }`}
                 >
@@ -458,7 +458,7 @@ function MerchPackCard({
               selectedColor
             )
           }
-          className="w-full bg-gradient-to-r from-squid-teal to-squid-teal/60  text-white py-4 px-6 rounded-xl transition-all duration-300 font-bold text-lg shadow-lg hover:shadow-xl hover:scale-105"
+          className="w-full bg-gradient-to-r from-natcon-green to-natcon-green/60  text-white py-4 px-6 rounded-xl transition-all duration-300 font-bold text-lg shadow-lg hover:shadow-xl hover:scale-105"
         >
           Add to Cart
         </button>
@@ -582,7 +582,7 @@ function ProductCard({
               {onOpenSizeChart && (
                 <button
                   onClick={onOpenSizeChart}
-                  className="text-xs text-squid-teal hover:text-squid-teal/80 underline transition-colors duration-200"
+                  className="text-xs text-natcon-green hover:text-natcon-green/80 underline transition-colors duration-200"
                 >
                   View Size Chart
                 </button>
@@ -595,7 +595,7 @@ function ProductCard({
                   onClick={() => setSelectedSize(size)}
                   className={`px-3 py-1 rounded-lg text-sm font-medium transition-colors duration-200 ${
                     selectedSize === size
-                      ? "bg-pink-600 text-white"
+                      ? "bg-natcon-red text-white"
                       : "bg-white/10 text-gray-300 hover:bg-white/20"
                   }`}
                 >
@@ -633,7 +633,7 @@ function ProductCard({
           onClick={() =>
             onAddToCart(product.name, selectedSize, quantity, product)
           }
-          className="w-full bg-pink-600 hover:bg-pink-700 text-white py-3 px-4 rounded-xl transition-colors duration-300 font-medium mt-auto"
+          className="w-full bg-natcon-red hover:bg-red-700 text-white py-3 px-4 rounded-xl transition-colors duration-300 font-medium mt-auto"
         >
           Add to Cart
         </button>

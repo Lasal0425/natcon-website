@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 
 export const metadata = {
   title: "Store",
-  description: "Buy NLDS 2025 merch",
+  description: "Buy NatCon 2026 merch",
 };
 
 export default function Home() {
@@ -17,3 +17,4 @@ export default function Home() {
     </div>
   );
 }
+
