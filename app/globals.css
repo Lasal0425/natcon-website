@@ -5,25 +5,24 @@ html {
 }
 
 :root {
-  --background: #031B40;
+  --background: #1D2F6F;
   --foreground: #F0E2D4;
-  --squid-pink-bright: #C37526;
-  --squid-pink: #8D1D27;
-  --squid-teal: #115253;
-  --squid-tealbright: #115253;
-  --squid-yellow: #E4BB41;
-  --squid-dark: #031B40;
-  --squid-gray: #955B38;
+  --natcon-red: #F02D3A;
+  --natcon-orange: #FEAD34;
+  --natcon-yellow: #F7F052;
+  --natcon-green: #00C49A;
+  --natcon-blue: #1D2F6F;
+  --natcon-gray: #1D2F6F;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-squid-pink: var(--squid-pink);
-  --color-squid-teal: var(--squid-teal);
-  --color-squid-yellow: var(--squid-yellow);
-  --color-squid-dark: var(--squid-dark);
-  --color-squid-gray: var(--squid-gray);
+  --color-natcon-red: var(--natcon-red);
+  --color-natcon-orange: var(--natcon-orange);
+  --color-natcon-yellow: var(--natcon-yellow);
+  --color-natcon-green: var(--natcon-green);
+  --color-natcon-blue: var(--natcon-blue);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -41,16 +40,16 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--squid-dark);
+  background: var(--natcon-blue);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--squid-pink);
+  background: var(--natcon-red);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--squid-teal);
+  background: var(--natcon-green);
 }
 
 /* Glitch effect for text */
@@ -110,4 +109,24 @@ body {
 
 .animate-fade-in-out {
   animation: fade-in-out 2.5s ease-in-out;
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
 }

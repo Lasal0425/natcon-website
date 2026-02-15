@@ -194,7 +194,7 @@ const PROJECTS: Project[] = [
       { name: "Kavindu Madushan", entity: "NIBM", phoneNo: "xxxxxxxxxx" },
       { name: "Vihan Hettiarachchi", entity: "CS", phoneNo: "xxxxxxxxxx" },
       { name: "Dileepa Bandara", entity: "USJ", phoneNo: "xxxxxxxxxx" },
-      ],
+    ],
     gender: "Male",
     keyHolder: "Kavindu Madushan",
   },
@@ -278,7 +278,7 @@ const PROJECTS: Project[] = [
       { name: "Dineth Wijesuriya", entity: "Ruhuna", phoneNo: "xxxxxxxxxx" },
       { name: "Rashdhan Mohomed", entity: "CN", phoneNo: "xxxxxxxxxx" },
       { name: "Ishan Balasooriya", entity: "CS", phoneNo: "xxxxxxxxxx" },
-      ],
+    ],
     gender: "Male",
     keyHolder: "Dineth Wijesuriya",
   },
@@ -732,7 +732,7 @@ export default function RoomSearch() {
       }}
     >
       <div className="max-w-4xl mx-auto">
-        <div className="bg-gray-900 border-2 border-squid-teal hover:border-squid-pink 
+        <div className="bg-gray-900 border-2 border-natcon-green hover:border-natcon-red 
                         rounded-2xl p-8 shadow-xl transition-all duration-300 ease-in-out hover:scale-105">
           <h1 className="text-4xl font-extrabold text-white mb-4 text-center">Room Allocation</h1>
           <p className="text-gray-300 text-center mb-8">
@@ -746,8 +746,8 @@ export default function RoomSearch() {
               placeholder="Enter name to search..."
               value={searchTerm}
               onChange={(e) => handleSearch(e.target.value)}
-              className="w-full px-4 py-3 pl-12 bg-gray-800 border-2 border-squid-teal rounded-xl text-white 
-                         focus:outline-none focus:border-squid-pink transition-all"
+              className="w-full px-4 py-3 pl-12 bg-gray-800 border-2 border-natcon-green rounded-xl text-white 
+                         focus:outline-none focus:border-natcon-red transition-all"
             />
             <svg
               className="absolute left-4 top-3.5 h-5 w-5 text-gray-400"
@@ -761,7 +761,7 @@ export default function RoomSearch() {
             {searchTerm && (
               <button
                 onClick={handleClear}
-                className="absolute right-4 top-3.5 text-gray-400 hover:text-squid-pink"
+                className="absolute right-4 top-3.5 text-gray-400 hover:text-natcon-red"
               >
                 <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
@@ -773,21 +773,20 @@ export default function RoomSearch() {
 
           {/* Search Results */}
           {searchResult && (
-            <div className="bg-gray-800 border-2 border-squid-teal rounded-xl p-6">
+            <div className="bg-gray-800 border-2 border-natcon-green rounded-xl p-6">
               <div className="flex items-center justify-between mb-4">
-                <h2 className="text-2xl font-bold text-squid-teal">Room {searchResult.roomNo}</h2>
-                <span className={`px-4 py-1 rounded-full text-sm font-semibold ${
-                  searchResult.gender === 'Male'
-                    ? 'bg-blue-900 text-blue-300'
-                    : 'bg-pink-900 text-pink-300'
-                }`}>
+                <h2 className="text-2xl font-bold text-natcon-green">Room {searchResult.roomNo}</h2>
+                <span className={`px-4 py-1 rounded-full text-sm font-semibold ${searchResult.gender === 'Male'
+                    ? 'bg-natcon-blue/50 text-blue-300'
+                    : 'bg-natcon-red/20 text-natcon-red'
+                  }`}>
                   {searchResult.gender}
                 </span>
               </div>
 
               {/* Key Holder */}
-              <div className="mb-6 p-4 bg-gray-900 border-2 border-amber-600 rounded-xl flex items-center gap-3">
-                <svg className="h-6 w-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+              <div className="mb-6 p-4 bg-gray-900 border-2 border-natcon-orange rounded-xl flex items-center gap-3">
+                <svg className="h-6 w-6 text-natcon-yellow" fill="currentColor" viewBox="0 0 20 20">
                   <path
                     fillRule="evenodd"
                     d="M18 8a6 6 0 01-7.743 5.743L10 14l-1 1-1 1H6v2H2v-4l4.257-4.257A6 6 0 1118 8zm-6-4a1 1 0 100 2 2 2 0 012 2 1 1 0 102 0 4 4 0 00-4-4z"
@@ -795,7 +794,7 @@ export default function RoomSearch() {
                   />
                 </svg>
                 <div>
-                  <p className="text-xs text-amber-400 font-semibold">Key Holder</p>
+                  <p className="text-xs text-natcon-yellow font-semibold">Key Holder</p>
                   <p className="text-lg font-bold text-white flex items-center gap-2">
                     {searchResult.keyHolder}
                   </p>
@@ -811,11 +810,10 @@ export default function RoomSearch() {
                   {searchResult.occupants.map((occupant, index) => (
                     <div
                       key={index}
-                      className={`p-3 rounded-lg border transition-all ${
-                        occupant.name.toLowerCase().includes(searchTerm.toLowerCase())
-                          ? 'bg-squid-pink border-squid-pink text-white'
+                      className={`p-3 rounded-lg border transition-all ${occupant.name.toLowerCase().includes(searchTerm.toLowerCase())
+                          ? 'bg-natcon-red border-natcon-red text-white'
                           : 'bg-gray-900 border-gray-700 text-gray-200'
-                      }`}
+                        }`}
                     >
                       <div className="font-medium">{occupant.name}</div>
                       <div className="text-sm">
@@ -850,3 +848,4 @@ export default function RoomSearch() {
     </section>
   );
 }
+

@@ -1,22 +1,24 @@
 import Navbar from "@/components/Navbar";
 import RegisterSection from "@/components/registration/Register";
-import RegistrationsClosed from "@/components/registration/RegistrationsClosed";
 import Footer from "@/components/Footer";
-import RoomSearch from "@/components/rooms/rooms";
+
+export const metadata = {
+  title: "Register | NatCon 2026",
+  description: "Register for NatCon 2026",
+};
 
 export default function Home() {
   return (
-    <>
-      <head>
-        <title>Register</title>
-        <meta name="Register" content="Register for NLDS 2025" />
-      </head>
-      <div className="min-h-screen bg-black text-white">
-        {/* <Navbar /> */}
-        <RegisterSection />
-        <Footer />
-
+    <div className="min-h-screen bg-black text-white flex flex-col">
+      <div className="flex-shrink-0 z-50">
+        <Navbar />
       </div>
-    </>
+      <main className="flex-1 w-full">
+        <RegisterSection />
+      </main>
+      <div className="flex-shrink-0">
+        <Footer />
+      </div>
+    </div>
   );
 }

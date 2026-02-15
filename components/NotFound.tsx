@@ -39,9 +39,9 @@ export default function NotFound() {
       <div className="flex flex-col sm:flex-row gap-5">
         <Link
           href="/"
-          className="bg-gray-900 border-2 border-squid-pink hover:bg-squid-pink hover:text-gray-900 text-white font-semibold py-3 sm:py-4 px-8 rounded-2xl transition-all duration-300 ease-in-out hover:scale-105 flex items-center justify-center gap-3 text-lg sm:text-xl"
+          className="bg-gray-900 border-2 border-natcon-red hover:bg-natcon-red hover:text-gray-900 text-white font-semibold py-3 sm:py-4 px-8 rounded-2xl transition-all duration-300 ease-in-out hover:scale-105 flex items-center justify-center gap-3 text-lg sm:text-xl"
         >
-          <div className="w-7 h-7 flex items-center justify-center border-2 border-squid-pink rounded-full">
+          <div className="w-7 h-7 flex items-center justify-center border-2 border-natcon-red rounded-full">
             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
               <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
             </svg>
@@ -51,9 +51,9 @@ export default function NotFound() {
 
         {/* <Link
           href="/contact"
-          className="bg-gray-900 border-2 border-squid-teal hover:bg-squid-teal hover:text-gray-900 text-white font-semibold py-3 sm:py-4 px-8 rounded-2xl transition-all duration-300 ease-in-out hover:scale-105 flex items-center justify-center gap-3 text-lg sm:text-xl"
+          className="bg-gray-900 border-2 border-natcon-green hover:bg-natcon-green hover:text-gray-900 text-white font-semibold py-3 sm:py-4 px-8 rounded-2xl transition-all duration-300 ease-in-out hover:scale-105 flex items-center justify-center gap-3 text-lg sm:text-xl"
         >
-          <div className="w-7 h-7 flex items-center justify-center border-2 border-squid-teal rounded-full">
+          <div className="w-7 h-7 flex items-center justify-center border-2 border-natcon-green rounded-full">
             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
               <path d="M21 8V7l-3 2-2-1-4 3-4-3-2 1-3-2v1l3 2v5l7 4 7-4V10l3-2z" />
             </svg>
@@ -64,3 +64,4 @@ export default function NotFound() {
     </section>
   );
 }
+

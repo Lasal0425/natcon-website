@@ -52,7 +52,7 @@ function PartnersGrid({ title, partners }: { title: string; partners: Array<{ na
   return (
     <div className="w-full">
       {/* Section Title */}
-      <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-squid-pink text-center mb-10 sm:mb-12">
+      <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-natcon-red text-center mb-10 sm:mb-12">
         {title}
       </h2>
 
@@ -62,7 +62,7 @@ function PartnersGrid({ title, partners }: { title: string; partners: Array<{ na
           const content = (
             <>
               {/* Logo Container */}
-              <div className="w-40 h-28 sm:w-48 sm:h-32 md:w-52 md:h-36 lg:w-56 lg:h-40 flex items-center justify-center bg-white rounded-lg p-4 backdrop-blur-sm border border-black/10 transition-all duration-300 group-hover:scale-110 group-hover:border-squid-pink/50 group-hover:shadow-lg group-hover:shadow-squid-pink/20">
+              <div className="w-40 h-28 sm:w-48 sm:h-32 md:w-52 md:h-36 lg:w-56 lg:h-40 flex items-center justify-center bg-white rounded-lg p-4 backdrop-blur-sm border border-black/10 transition-all duration-300 group-hover:scale-110 group-hover:border-natcon-red/50 group-hover:shadow-lg group-hover:shadow-natcon-red/20">
                 <div className="relative w-full h-full">
                   <Image
                     src={partner.logo}

@@ -147,17 +147,17 @@ function StatCard({ Icon, target, suffix, label, active }: StatCardProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
-      className="group relative bg-gray-900/80 backdrop-blur-sm border-2 border-squid-teal hover:border-squid-pink rounded-2xl p-6 flex flex-col items-center justify-center hover:scale-105 transition-all duration-300 ease-in-out hover:shadow-[0_0_20px_rgba(141,29,39,0.6)]"
+      className="group relative bg-gray-900/80 backdrop-blur-sm border-2 border-natcon-green hover:border-natcon-red rounded-2xl p-6 flex flex-col items-center justify-center hover:scale-105 transition-all duration-300 ease-in-out hover:shadow-[0_0_20px_rgba(240,45,58,0.6)]"
     >
       {/* Icon */}
-      <div className="text-gray-300 group-hover:text-squid-pink transition-colors duration-300 flex items-center justify-center">
+      <div className="text-gray-300 group-hover:text-natcon-red transition-colors duration-300 flex items-center justify-center">
         <Icon />
       </div>
 
       {/* Animated number + suffix */}
-      <h3 className="text-xl md:text-2xl font-bold font-mono text-center mt-2 text-white group-hover:text-squid-yellow transition-colors duration-300">
+      <h3 className="text-xl md:text-2xl font-bold font-mono text-center mt-2 text-white group-hover:text-natcon-yellow transition-colors duration-300">
         <span>{count}</span>
-        <span className="text-squid-yellow">{suffix}</span>{" "}
+        <span className="text-natcon-yellow">{suffix}</span>{" "}
         <span className="block text-sm md:text-base font-normal text-gray-400 mt-1 uppercase tracking-widest">{label}</span>
       </h3>
     </motion.div>
@@ -208,15 +208,15 @@ export default function AboutEvent() {
       >
         <div className="relative p-8 rounded-3xl bg-gray-900/40 backdrop-blur-xl border border-white/10 shadow-2xl">
           {/* Decorative elements */}
-          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-squid-pink to-transparent opacity-50"></div>
+          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-natcon-red to-transparent opacity-50"></div>
 
           <p className="text-lg md:text-xl leading-relaxed text-gray-200 font-sans tracking-wide">
             The{" "}
-            <span className="text-squid-pink font-bold text-2xl font-mono">
+            <span className="text-natcon-red font-bold text-2xl font-mono">
               National Conference (NatCon){" "}
             </span>
             is the largest conference organized by AIESEC in Sri Lanka,
-            bringing together over <span className="text-squid-yellow font-bold">350+ delegates</span> from more than <span className="text-squid-yellow font-bold">20 prestigious
+            bringing together over <span className="text-natcon-yellow font-bold">350+ delegates</span> from more than <span className="text-natcon-yellow font-bold">20 prestigious
               universities</span> across the country. It serves as a platform for
             AIESECers from all over Sri Lanka to connect, expand their networks,
             and foster the development of the next generation of leaders.
@@ -243,7 +243,7 @@ export default function AboutEvent() {
       >
         <a
           href="/register"
-          className="group relative bg-gray-900 border border-squid-pink text-white font-bold py-4 px-10 rounded-xl transition-all duration-300 ease-out hover:scale-105 hover:bg-squid-pink hover:shadow-[0_0_20px_rgba(223,26,60,0.5)] flex items-center justify-center gap-3 text-xl overflow-hidden"
+          className="group relative bg-gray-900 border border-natcon-red text-white font-bold py-4 px-10 rounded-xl transition-all duration-300 ease-out hover:scale-105 hover:bg-natcon-red hover:shadow-[0_0_20px_rgba(240,45,58,0.5)] flex items-center justify-center gap-3 text-xl overflow-hidden"
         >
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-150%] group-hover:translate-x-[150%] transition-transform duration-700 ease-in-out"></div>
           <div className="w-8 h-8 flex items-center justify-center border-2 border-current rounded-full group-hover:border-white transition-colors">
@@ -275,11 +275,11 @@ export default function AboutEvent() {
           viewport={{ once: true }}
           className="max-w-4xl mx-auto text-center py-20"
         >
-          <div className="relative p-12 rounded-3xl bg-gray-900/60 backdrop-blur-2xl border-2 border-dashed border-squid-pink/30 shadow-[0_0_50px_rgba(223,26,60,0.1)]">
+          <div className="relative p-12 rounded-3xl bg-gray-900/60 backdrop-blur-2xl border-2 border-dashed border-natcon-red/30 shadow-[0_0_50px_rgba(240,45,58,0.1)]">
             <h2 className="text-4xl md:text-6xl font-black font-mono text-white mb-6 tracking-tighter uppercase italic">
-              Coming <span className="text-squid-pink">Soon</span>
+              Coming <span className="text-natcon-red">Soon</span>
             </h2>
-            <div className="w-24 h-1 bg-squid-pink mx-auto mb-8 rounded-full shadow-[0_0_10px_rgba(223,26,60,0.8)]"></div>
+            <div className="w-24 h-1 bg-natcon-red mx-auto mb-8 rounded-full shadow-[0_0_10px_rgba(240,45,58,0.8)]"></div>
             <p className="text-gray-400 text-xl font-mono uppercase tracking-[0.2em]">
               The Reveal is Approaching...
             </p>
@@ -326,13 +326,13 @@ export default function AboutEvent() {
               rel="noopener noreferrer"
               className="w-full group"
             >
-              <div className="bg-gray-900 border-2 border-squid-teal group-hover:border-squid-pink group-hover:shadow-[0_0_15px_rgba(141,29,39,0.5)] rounded-2xl p-8 flex flex-col items-center justify-center transition-all duration-300 ease-in-out h-full">
-                <div className="w-20 h-20 flex items-center justify-center border-2 border-squid-teal group-hover:border-squid-pink rounded-full mb-6 transition-colors duration-300">
-                  <svg className="w-10 h-10 text-gray-300 group-hover:text-squid-pink transition-colors" fill="currentColor" viewBox="0 0 24 24">
+              <div className="bg-gray-900 border-2 border-natcon-green group-hover:border-natcon-red group-hover:shadow-[0_0_15px_rgba(240,45,58,0.5)] rounded-2xl p-8 flex flex-col items-center justify-center transition-all duration-300 ease-in-out h-full">
+                <div className="w-20 h-20 flex items-center justify-center border-2 border-natcon-green group-hover:border-natcon-red rounded-full mb-6 transition-colors duration-300">
+                  <svg className="w-10 h-10 text-gray-300 group-hover:text-natcon-red transition-colors" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
                   </svg>
                 </div>
-                <h3 className="text-xl md:text-2xl font-bold font-mono text-center text-white group-hover:text-squid-pink transition-colors">
+                <h3 className="text-xl md:text-2xl font-bold font-mono text-center text-white group-hover:text-natcon-red transition-colors">
                   Citrus Hotel Waskaduwa
                 </h3>
               </div>
@@ -340,9 +340,9 @@ export default function AboutEvent() {
 
             <motion.div
               whileHover={{ scale: 1.03 }}
-              className="bg-gray-900 border-2 border-squid-teal hover:border-squid-pink hover:shadow-[0_0_15px_rgba(141,29,39,0.5)] rounded-2xl p-8 flex flex-col items-center justify-center transition-all duration-300 ease-in-out h-full"
+              className="bg-gray-900 border-2 border-natcon-green hover:border-natcon-red hover:shadow-[0_0_15px_rgba(240,45,58,0.5)] rounded-2xl p-8 flex flex-col items-center justify-center transition-all duration-300 ease-in-out h-full"
             >
-              <div className="w-20 h-20 flex items-center justify-center border-2 border-squid-teal group-hover:border-squid-pink rounded-full mb-6 transition-colors duration-300">
+              <div className="w-20 h-20 flex items-center justify-center border-2 border-natcon-green group-hover:border-natcon-red rounded-full mb-6 transition-colors duration-300">
                 <svg className="w-10 h-10 text-gray-300" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z" />
                 </svg>
@@ -385,3 +385,4 @@ export default function AboutEvent() {
     </section>
   );
 }
+

@@ -50,24 +50,25 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-          isScrolled
-            ? "bg-black/90 backdrop-blur-md shadow-lg"
-            : "bg-transparent"
-        }`}
+        className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled
+          ? "bg-black/90 backdrop-blur-md shadow-lg"
+          : "bg-transparent"
+          }`}
       >
         <div className="w-full mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             {/* Logo on the left */}
             <div className="flex-shrink-0">
-              <Image
-                src="/nlds-logo.png"
-                alt="NLDS Logo"
-                width={120}
-                height={0}
-                className="h-auto w-[120px]"
-                priority
-              />
+              <a href="/">
+                <Image
+                  src="/nlds-logo.png"
+                  alt="NLDS Logo"
+                  width={120}
+                  height={0}
+                  className="h-auto w-[120px]"
+                  priority
+                />
+              </a>
             </div>
 
             {/* Desktop Navigation */}
@@ -82,7 +83,7 @@ export default function Navbar() {
                     {item.name}
                     <span
                       className="absolute -bottom-1 left-0 w-0 h-0.5 group-hover:w-full transition-all duration-300 ease-out"
-                      style={{ backgroundColor: "var(--squid-pink, #ff69b4)" }}
+                      style={{ backgroundColor: "var(--natcon-red, #ff69b4)" }}
                     ></span>
                   </span>
                 </a>
@@ -97,9 +98,8 @@ export default function Navbar() {
                 aria-label="Toggle mobile menu"
               >
                 <svg
-                  className={`w-6 h-6 transition-transform duration-300 ${
-                    isMobileMenuOpen ? "rotate-180" : "rotate-0"
-                  }`}
+                  className={`w-6 h-6 transition-transform duration-300 ${isMobileMenuOpen ? "rotate-180" : "rotate-0"
+                    }`}
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -128,17 +128,15 @@ export default function Navbar() {
 
       {/* Backdrop overlay */}
       <div
-        className={`fixed inset-0 bg-black/50 backdrop-blur-sm z-40 transition-opacity duration-300 md:hidden ${
-          isMobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
-        }`}
+        className={`fixed inset-0 bg-black/50 backdrop-blur-sm z-40 transition-opacity duration-300 md:hidden ${isMobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
+          }`}
         onClick={() => setIsMobileMenuOpen(false)}
       />
 
       {/* Mobile Navigation Slide Panel */}
       <div
-        className={`mobile-menu fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-black/80 backdrop-blur-xl border-l border-gray-800/50 z-50 transform transition-transform duration-300 ease-out md:hidden ${
-          isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
-        }`}
+        className={`mobile-menu fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-black/80 backdrop-blur-xl border-l border-gray-800/50 z-50 transform transition-transform duration-300 ease-out md:hidden ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+          }`}
       >
         {/* Header */}
         <div className="flex items-center justify-end p-6">
@@ -182,7 +180,7 @@ export default function Navbar() {
                     {item.name}
                     <span
                       className="absolute -bottom-1 left-0 w-0 h-0.5 group-hover:w-full transition-all duration-300 ease-out"
-                      style={{ backgroundColor: "var(--squid-pink, #ff69b4)" }}
+                      style={{ backgroundColor: "var(--natcon-red, #ff69b4)" }}
                     ></span>
                   </span>
                 </span>

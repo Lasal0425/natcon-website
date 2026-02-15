@@ -98,7 +98,7 @@ export default function Checkout() {
             </p>
             <button
               onClick={() => router.push("/store")}
-              className="bg-squid-teal hover:bg-squid-teal/80 text-white py-3 px-6 rounded-xl transition-all duration-300 font-medium"
+              className="bg-natcon-green hover:bg-natcon-green/80 text-white py-3 px-6 rounded-xl transition-all duration-300 font-medium"
             >
               Continue Shopping
             </button>
@@ -233,9 +233,8 @@ export default function Checkout() {
             if (item.color) itemDetails += ` (Color: ${item.color})`;
           }
 
-          return `${itemDetails} - Qty: ${
-            item.quantity
-          } - ${item.price.toLocaleString()} LKR each`;
+          return `${itemDetails} - Qty: ${item.quantity
+            } - ${item.price.toLocaleString()} LKR each`;
         })
         .join("\n");
 
@@ -303,7 +302,7 @@ export default function Checkout() {
         <div>
           <h4 className="text-white font-medium">{item.name}</h4>
           <div className="flex items-center gap-2 mb-1">
-            <span className="bg-squid-teal text-white text-xs px-2 py-1 rounded-full font-bold">
+            <span className="bg-natcon-green text-white text-xs px-2 py-1 rounded-full font-bold">
               PACK
             </span>
           </div>
@@ -364,7 +363,7 @@ export default function Checkout() {
               You&apos;ll receive a confirmation email shortly. Redirecting to
               confirmation page...
             </p>
-            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-squid-teal mx-auto"></div>
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-natcon-green mx-auto"></div>
           </div>
         </div>
       </section>
@@ -418,7 +417,7 @@ export default function Checkout() {
                         className="object-contain p-2"
                       />
                       {item.isMerchPack && (
-                        <div className="absolute top-1 right-1 bg-squid-teal text-white text-xs px-1.5 py-0.5 rounded-full font-bold">
+                        <div className="absolute top-1 right-1 bg-natcon-green text-white text-xs px-1.5 py-0.5 rounded-full font-bold">
                           PACK
                         </div>
                       )}
@@ -427,7 +426,7 @@ export default function Checkout() {
                       {renderCheckoutItemDetails(item)}
                     </div>
                     <div className="text-right">
-                      <p className="text-squid-teal font-semibold">
+                      <p className="text-natcon-green font-semibold">
                         {(item.price * item.quantity).toLocaleString()} LKR
                       </p>
                     </div>
@@ -476,7 +475,7 @@ export default function Checkout() {
                     value={formData.name}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-squid-teal focus:border-transparent"
+                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-natcon-green focus:border-transparent"
                     placeholder="Enter your full name"
                   />
                 </div>
@@ -496,7 +495,7 @@ export default function Checkout() {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-squid-teal focus:border-transparent"
+                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-natcon-green focus:border-transparent"
                     placeholder="Enter your email address"
                   />
                 </div>
@@ -516,7 +515,7 @@ export default function Checkout() {
                     value={formData.contactNumber}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-squid-teal focus:border-transparent"
+                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-natcon-green focus:border-transparent"
                     placeholder="Enter your phone number"
                   />
                 </div>
@@ -536,7 +535,7 @@ export default function Checkout() {
                     onChange={handleInputChange}
                     required
                     rows={3}
-                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-squid-teal focus:border-transparent resize-none"
+                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-natcon-green focus:border-transparent resize-none"
                     placeholder="Enter your complete home address"
                   />
                 </div>
@@ -555,7 +554,7 @@ export default function Checkout() {
                     value={formData.entity}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-squid-teal focus:border-transparent"
+                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-natcon-green focus:border-transparent"
                   >
                     <option value="" className="bg-gray-800">
                       Select your entity
@@ -580,13 +579,13 @@ export default function Checkout() {
                     name="attendingEvent"
                     checked={formData.attendingEvent}
                     onChange={handleInputChange}
-                    className="mt-1 w-4 h-4 text-squid-teal bg-white/10 border-white/20 rounded focus:ring-squid-teal focus:ring-2"
+                    className="mt-1 w-4 h-4 text-natcon-green bg-white/10 border-white/20 rounded focus:ring-natcon-green focus:ring-2"
                   />
                   <label
                     htmlFor="attendingEvent"
                     className="text-sm text-gray-300"
                   >
-                    I will be attending NLDS 2025
+                    I will be attending NatCon 2026
                   </label>
                 </div>
 
@@ -630,7 +629,7 @@ export default function Checkout() {
                     onChange={handleFileChange}
                     required
                     accept=".jpg,.jpeg,.png,.pdf,.doc,.docx"
-                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-squid-teal file:text-white hover:file:bg-squid-teal/80 focus:outline-none focus:ring-2 focus:ring-squid-teal focus:border-transparent"
+                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-natcon-green file:text-white hover:file:bg-natcon-green/80 focus:outline-none focus:ring-2 focus:ring-natcon-green focus:border-transparent"
                   />
                   <div className="mt-2 space-y-1">
                     <p className="text-gray-400 text-xs">
@@ -661,7 +660,7 @@ export default function Checkout() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-pink-600 hover:bg-pink-700 disabled:bg-pink-600/50 disabled:cursor-not-allowed text-white py-4 px-6 rounded-xl transition-all duration-300 font-semibold text-lg shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
+                  className="w-full bg-natcon-red hover:bg-red-700 disabled:bg-natcon-red/50 disabled:cursor-not-allowed text-white py-4 px-6 rounded-xl transition-all duration-300 font-semibold text-lg shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
                 >
                   {isSubmitting ? (
                     <>
@@ -676,7 +675,7 @@ export default function Checkout() {
                 <button
                   type="button"
                   onClick={() => router.push("/cart")}
-                  className="w-full bg-transparent border-2 border-squid-teal text-squid-teal hover:bg-squid-teal hover:text-white py-3 px-6 rounded-xl transition-all duration-300 font-medium"
+                  className="w-full bg-transparent border-2 border-natcon-green text-natcon-green hover:bg-natcon-green hover:text-white py-3 px-6 rounded-xl transition-all duration-300 font-medium"
                 >
                   Back to Cart
                 </button>
@@ -685,8 +684,8 @@ export default function Checkout() {
                 <div className="mt-4 text-center text-gray-400 text-sm">
                   <p className="mb-2">
                     In case you encounter an error, immediately send an email to{" "}
-                    <a href="mailto:bimsara.madurapperuma@aiesec.net" className="text-squid-teal hover:underline">
-                      bimsara.madurapperuma@aiesec.net 
+                    <a href="mailto:bimsara.madurapperuma@aiesec.net" className="text-natcon-green hover:underline">
+                      lasal.rathnayake@aiesec.net
                     </a>
                     <br></br>
                     or send a message via WhatsApp
@@ -694,13 +693,13 @@ export default function Checkout() {
                   <button
                     type="button"
                     onClick={() => setShowContactInfo(!showContactInfo)}
-                    className="text-squid-teal hover:text-squid-teal/80 underline transition-colors duration-200"
+                    className="text-natcon-green hover:text-natcon-green/80 underline transition-colors duration-200"
                   >
                     {showContactInfo ? "Hide WhatsApp contact" : "click to view WhatsApp contact"}
                   </button>
                   {showContactInfo && (
                     <p className="mt-2 text-gray-300">
-                      WhatsApp: +94767329685
+                      WhatsApp: +94710792783
                     </p>
                   )}
                 </div>

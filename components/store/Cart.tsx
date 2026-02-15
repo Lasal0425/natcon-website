@@ -61,7 +61,7 @@ export default function Cart() {
 
         <div className="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-center min-h-[60vh]">
           <div className="text-center">
-            <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-squid-teal mx-auto mb-4"></div>
+            <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-natcon-green mx-auto mb-4"></div>
             <p className="text-white text-xl">Loading your cart...</p>
           </div>
         </div>
@@ -107,7 +107,7 @@ export default function Cart() {
               </p>
               <button
                 onClick={handleContinueShopping}
-                className="bg-squid-teal hover:bg-squid-teal/80 text-white py-3 px-6 rounded-xl transition-all duration-300 font-medium"
+                className="bg-natcon-green hover:bg-natcon-green/80 text-white py-3 px-6 rounded-xl transition-all duration-300 font-medium"
               >
                 Continue Shopping
               </button>
@@ -154,14 +154,14 @@ export default function Cart() {
                 <div className="space-y-3">
                   <button
                     onClick={handleCheckout}
-                    className="w-full bg-pink-600 hover:bg-pink-700 text-white py-4 px-6 rounded-xl transition-all duration-300 font-semibold text-lg shadow-lg hover:shadow-xl"
+                    className="w-full bg-natcon-red hover:bg-red-700 text-white py-4 px-6 rounded-xl transition-all duration-300 font-semibold text-lg shadow-lg hover:shadow-xl"
                   >
                     Proceed to Checkout
                   </button>
 
                   <button
                     onClick={handleContinueShopping}
-                    className="w-full bg-transparent border-2 border-squid-teal text-squid-teal hover:bg-squid-teal hover:text-white py-3 px-6 rounded-xl transition-all duration-300 font-medium"
+                    className="w-full bg-transparent border-2 border-natcon-green text-natcon-green hover:bg-natcon-green hover:text-white py-3 px-6 rounded-xl transition-all duration-300 font-medium"
                   >
                     Continue Shopping
                   </button>
@@ -173,7 +173,7 @@ export default function Cart() {
       </div>
 
       {popupMessage && (
-        <div className="fixed bottom-5 left-1/2 -translate-x-1/2 bg-squid-dark border-2 border-squid-teal text-white py-3 px-6 rounded-xl shadow-xl text-center z-50 animate-fade-in-out opacity-80">
+        <div className="fixed bottom-5 left-1/2 -translate-x-1/2 bg-natcon-blue border-2 border-natcon-green text-white py-3 px-6 rounded-xl shadow-xl text-center z-50 animate-fade-in-out opacity-80">
           {popupMessage}
         </div>
       )}
@@ -227,7 +227,7 @@ function CartItemCard({
               Wristband Color: {item.wristbandColor}
             </p>
           )}
-          <p className="text-squid-teal text-xs font-medium">🎁 Merch Pack</p>
+          <p className="text-natcon-green text-xs font-medium">🎁 Merch Pack</p>
         </div>
       );
     } else {
@@ -256,7 +256,7 @@ function CartItemCard({
               className="object-contain p-2"
             />
             {item.isMerchPack && (
-              <div className="absolute top-1 right-1 bg-squid-teal text-white text-xs px-1.5 py-0.5 rounded-full font-bold">
+              <div className="absolute top-1 right-1 bg-natcon-green text-white text-xs px-1.5 py-0.5 rounded-full font-bold">
                 PACK
               </div>
             )}
@@ -270,7 +270,7 @@ function CartItemCard({
                 {item.name}
               </h3>
               {renderItemSpecs()}
-              <p className="text-squid-teal font-semibold text-lg mt-2">
+              <p className="text-natcon-green font-semibold text-lg mt-2">
                 {item.price.toLocaleString()} LKR
               </p>
             </div>
@@ -320,3 +320,4 @@ function CartItemCard({
     </div>
   );
 }
+
