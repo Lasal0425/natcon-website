@@ -25,7 +25,7 @@ export default function Store() {
         {/* Title image */}
         <div className="mb-12">
           <Image
-            src="/topics/registration-closed.webp"
+            src="/topics/registration-closed.png"
             alt="Store"
             width={512}
             height={64}

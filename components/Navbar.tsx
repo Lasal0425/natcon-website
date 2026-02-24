@@ -61,7 +61,7 @@ export default function Navbar() {
             <div className="flex-shrink-0">
               <a href="/">
                 <Image
-                  src="/nlds-logo.png"
+                  src="/loog.png"
                   alt="NLDS Logo"
                   width={120}
                   height={0}

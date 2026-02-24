@@ -36,10 +36,10 @@ export default function Store() {
         {/* Animated Text */}
         <div className="text-center font-mono pt-10">
           <h2 className="text-2xl md:text-4xl font-extrabold tracking-wide text-white animate-pulse">
-            <span className="text-yellow-700">Yellow light!</span>
+            <span className="text-yellow-700">Stay tuned!</span>
           </h2>
           <h2 className="text-2xl md:text-4xl font-extrabold tracking-wide text-white animate-pulse pt-6">
-            Merch orders opening soon.
+            Store will be opening soon.
           </h2>
         </div>
       </div>
