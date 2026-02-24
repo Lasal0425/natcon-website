@@ -76,31 +76,31 @@ export default function HeroSection() {
       </div>
 
       {/* Countdown Timer */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
-        <div className="flex justify-center gap-4 text-2xl font-mono">
-          <div className="bg-natcon-blue w-20 h-20 rounded-lg flex flex-col items-center justify-center">
-            <div className="text-natcon-red font-bold">
+      <div className="absolute bottom-6 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-20 w-full px-4">
+        <div className="flex justify-center gap-2 sm:gap-4 text-2xl font-mono">
+          <div className="bg-natcon-blue w-16 h-16 sm:w-20 sm:h-20 rounded-lg flex flex-col items-center justify-center">
+            <div className="text-natcon-red font-bold text-lg sm:text-2xl">
               {timeLeft.days.toString().padStart(2, "0")}
             </div>
-            <div className="text-xs text-white/70">Days</div>
+            <div className="text-[10px] sm:text-xs text-white/70">Days</div>
           </div>
-          <div className="bg-natcon-blue w-20 h-20 rounded-lg flex flex-col items-center justify-center">
-            <div className="text-natcon-red font-bold">
+          <div className="bg-natcon-blue w-16 h-16 sm:w-20 sm:h-20 rounded-lg flex flex-col items-center justify-center">
+            <div className="text-natcon-red font-bold text-lg sm:text-2xl">
               {timeLeft.hours.toString().padStart(2, "0")}
             </div>
-            <div className="text-xs text-white/70">Hours</div>
+            <div className="text-[10px] sm:text-xs text-white/70">Hours</div>
           </div>
-          <div className="bg-natcon-blue w-20 h-20 rounded-lg flex flex-col items-center justify-center">
-            <div className="text-natcon-red font-bold">
+          <div className="bg-natcon-blue w-16 h-16 sm:w-20 sm:h-20 rounded-lg flex flex-col items-center justify-center">
+            <div className="text-natcon-red font-bold text-lg sm:text-2xl">
               {timeLeft.minutes.toString().padStart(2, "0")}
             </div>
-            <div className="text-xs text-white/70">Minutes</div>
+            <div className="text-[10px] sm:text-xs text-white/70">Minutes</div>
           </div>
-          <div className="bg-natcon-blue w-20 h-20 rounded-lg flex flex-col items-center justify-center">
-            <div className="text-natcon-red font-bold">
+          <div className="bg-natcon-blue w-16 h-16 sm:w-20 sm:h-20 rounded-lg flex flex-col items-center justify-center">
+            <div className="text-natcon-red font-bold text-lg sm:text-2xl">
               {timeLeft.seconds.toString().padStart(2, "0")}
             </div>
-            <div className="text-xs text-white/70">Seconds</div>
+            <div className="text-[10px] sm:text-xs text-white/70">Seconds</div>
           </div>
         </div>
       </div>

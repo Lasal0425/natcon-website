@@ -231,3 +231,21 @@ body {
 .animate-particle-drift {
   animation: particle-drift 3s ease-out infinite;
 }
+
+/* Gradient border shift */
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient-shift {
+  background-size: 300% 300%;
+  animation: gradient-shift 4s ease infinite;
+}

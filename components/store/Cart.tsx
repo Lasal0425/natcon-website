@@ -78,7 +78,7 @@ export default function Cart() {
         playsInline
         className="absolute inset-0 w-full h-full object-cover"
       >
-        <source src="/squid-game-bg.webm" type="video/mp4" />
+        <source src="/background.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
@@ -103,7 +103,7 @@ export default function Cart() {
                 Your cart is empty
               </h2>
               <p className="text-gray-300 mb-8">
-                Add some amazing NLDS drip to get started!
+                Add some amazing NatCon drip to get started!
               </p>
               <button
                 onClick={handleContinueShopping}

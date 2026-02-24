@@ -28,11 +28,11 @@ export default function PartnersSection() {
         {/* Title */}
         <div className="flex justify-center mb-16">
           <Image
-            src="/topics/our-partners.png"
+            src="/topics/Our-Partners.png"
             alt="Our Partners"
             width={512}
             height={64}
-            className="w-auto h-12 sm:h-16 md:h-20 hover:scale-105 transition-transform duration-300"
+            className="w-auto h-16 sm:h-20 md:h-28 hover:scale-105 transition-transform duration-300"
           />
         </div>
 

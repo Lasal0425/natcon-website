@@ -22,11 +22,11 @@ function SizeChartModal({
 
   const sizeCharts = {
     tshirt: {
-        title: "Crew Neck Tee Size Chart",
+      title: "Crew Neck Tee Size Chart",
       image: "/merch/crewneck-size-chart.webp",
     },
     oversized: {
-      title: "Oversized Tee Size Chart", 
+      title: "Oversized Tee Size Chart",
       image: "/merch/oversized-size-chart.webp",
     },
     pack: {
@@ -171,9 +171,9 @@ export default function Store() {
       {/* Foreground content */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Title */}
-        <div className="mt-10 mb-8 flex items-center justify-center pb-10">
+        <div className="mt-10 mb-4 flex items-center justify-center pb-4">
           <Image
-            src="/topics/Store.png"
+            src="/topics/STORE.png"
             alt="Store"
             width={512}
             height={64}
@@ -411,11 +411,10 @@ function MerchPackCard({
                 <button
                   key={size}
                   onClick={() => setSelectedSize(size)}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
-                    selectedSize === size
+                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${selectedSize === size
                       ? "bg-natcon-red text-white shadow-lg scale-105"
                       : "bg-white/10 text-gray-300 hover:bg-white/20 hover:scale-105"
-                  }`}
+                    }`}
                 >
                   {size}
                 </button>
@@ -435,11 +434,10 @@ function MerchPackCard({
                 <button
                   key={color}
                   onClick={() => setSelectedColor(color)}
-                  className={`px-6 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
-                    selectedColor === color
+                  className={`px-6 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${selectedColor === color
                       ? "bg-natcon-red text-white shadow-lg scale-105"
                       : "bg-white/10 text-gray-300 hover:bg-white/20 hover:scale-105"
-                  }`}
+                    }`}
                 >
                   {color}
                 </button>
@@ -593,11 +591,10 @@ function ProductCard({
                 <button
                   key={size}
                   onClick={() => setSelectedSize(size)}
-                  className={`px-3 py-1 rounded-lg text-sm font-medium transition-colors duration-200 ${
-                    selectedSize === size
+                  className={`px-3 py-1 rounded-lg text-sm font-medium transition-colors duration-200 ${selectedSize === size
                       ? "bg-natcon-red text-white"
                       : "bg-white/10 text-gray-300 hover:bg-white/20"
-                  }`}
+                    }`}
                 >
                   {size}
                 </button>
