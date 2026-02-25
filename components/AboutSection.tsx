@@ -164,7 +164,7 @@ function StatCard({ Icon, target, suffix, label, color, active, index }: StatCar
       {/* Animated gradient border wrapper */}
       <div className={`absolute -inset-[1px] rounded-2xl bg-gradient-to-r from-natcon-red via-natcon-orange to-natcon-green opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-gradient-shift blur-[1px]`}></div>
 
-      <div className="relative bg-gray-900/80 backdrop-blur-xl rounded-2xl p-6 sm:p-8 flex flex-col items-center justify-center hover:scale-[1.03] transition-all duration-500 ease-out overflow-hidden border border-white/5">
+      <div className="relative bg-gray-900/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 flex flex-col items-center justify-center hover:scale-[1.03] transition-all duration-500 ease-out overflow-hidden border border-white/5">
         {/* Top accent line */}
         <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-[2px] bg-gradient-to-r from-transparent via-${color} to-transparent group-hover:w-full transition-all duration-700`}></div>
 
@@ -173,7 +173,6 @@ function StatCard({ Icon, target, suffix, label, color, active, index }: StatCar
 
         {/* Icon container with ring */}
         <div className={`relative w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 ${c.border} group-hover:border-opacity-80 flex items-center justify-center mb-4 transition-all duration-500`}>
-          <div className={`absolute inset-0 rounded-full ${c.bg} opacity-0 group-hover:opacity-100 blur-md transition-all duration-500`}></div>
           <div className={`relative ${c.text} transition-colors duration-300`}>
             <Icon />
           </div>
@@ -199,73 +198,8 @@ function StatCard({ Icon, target, suffix, label, color, active, index }: StatCar
 
 // ─── Floating particle component ──────────────────────────────────────────
 
-function FloatingParticles() {
-  const particles = [
-    { x: "5%", y: "10%", size: 3, delay: 0, duration: 8 },
-    { x: "15%", y: "60%", size: 2, delay: 1.5, duration: 10 },
-    { x: "25%", y: "30%", size: 4, delay: 0.8, duration: 7 },
-    { x: "40%", y: "80%", size: 2, delay: 2.2, duration: 9 },
-    { x: "55%", y: "15%", size: 3, delay: 0.5, duration: 11 },
-    { x: "70%", y: "50%", size: 2, delay: 1.8, duration: 8 },
-    { x: "80%", y: "25%", size: 3, delay: 3.0, duration: 10 },
-    { x: "90%", y: "70%", size: 2, delay: 0.3, duration: 9 },
-    { x: "35%", y: "45%", size: 2, delay: 2.5, duration: 12 },
-    { x: "65%", y: "85%", size: 3, delay: 1.0, duration: 7 },
-    { x: "12%", y: "40%", size: 2, delay: 0.7, duration: 9 },
-    { x: "78%", y: "15%", size: 3, delay: 1.3, duration: 11 },
-    { x: "45%", y: "92%", size: 2, delay: 2.0, duration: 8 },
-    { x: "92%", y: "45%", size: 3, delay: 0.4, duration: 10 },
-    { x: "20%", y: "75%", size: 4, delay: 1.7, duration: 7 },
-  ];
+// FloatingParticles removed — 15 infinitely-animating elements crash mobile GPUs
 
-  return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      {particles.map((p, i) => (
-        <motion.div
-          key={i}
-          className="absolute rounded-full"
-          style={{
-            left: p.x,
-            top: p.y,
-            width: p.size,
-            height: p.size,
-            background: i % 3 === 0
-              ? "rgba(240, 45, 58, 0.4)"
-              : i % 3 === 1
-                ? "rgba(254, 173, 52, 0.3)"
-                : "rgba(0, 196, 154, 0.3)",
-          }}
-          animate={{
-            y: [0, -30, 0, 20, 0],
-            x: [0, 15, -10, 5, 0],
-            opacity: [0.2, 0.6, 0.3, 0.5, 0.2],
-            scale: [1, 1.5, 1, 1.3, 1],
-          }}
-          transition={{
-            duration: p.duration,
-            delay: p.delay,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-      ))}
-    </div>
-  );
-}
-
-// ─── Decorative grid overlay ──────────────────────────────────────────────
-
-function GridOverlay() {
-  return (
-    <div
-      className="absolute inset-0 pointer-events-none opacity-[0.03]"
-      style={{
-        backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
-        backgroundSize: "60px 60px",
-      }}
-    />
-  );
-}
 
 // ─── Main component ───────────────────────────────────────────────────────
 
@@ -277,26 +211,15 @@ export default function AboutEvent() {
   return (
     <section
       id="about"
-      className="relative z-20 py-20 sm:py-28 px-4 sm:px-6 md:px-12 overflow-hidden"
-      style={{
-        backgroundColor: "rgba(0, 0, 0, 0.7)",
-        backdropFilter: "blur(16px)",
-        WebkitBackdropFilter: "blur(16px)",
-      }}
+      className="relative z-20 py-20 sm:py-28 px-4 sm:px-6 md:px-12 overflow-hidden bg-black/90"
     >
-      {/* ── Background effects ── */}
-      <FloatingParticles />
-      <GridOverlay />
-
-      {/* Large ambient glow blobs — more dramatic */}
-      <div className="absolute -top-20 left-1/4 w-[500px] h-[500px] bg-natcon-red/10 rounded-full blur-[150px] pointer-events-none"></div>
-      <div className="absolute -bottom-20 right-1/4 w-[400px] h-[400px] bg-natcon-blue/20 rounded-full blur-[120px] pointer-events-none"></div>
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-natcon-orange/5 rounded-full blur-[180px] pointer-events-none"></div>
-      <div className="absolute top-1/3 right-0 w-[300px] h-[300px] bg-natcon-green/8 rounded-full blur-[100px] pointer-events-none"></div>
+      {/* ── Ambient glow blobs — lightweight ── */}
+      <div className="absolute -top-20 left-1/4 w-64 h-64 bg-natcon-red/8 rounded-full blur-[60px] pointer-events-none"></div>
+      <div className="absolute -bottom-20 right-1/4 w-56 h-56 bg-natcon-blue/10 rounded-full blur-[60px] pointer-events-none"></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-natcon-orange/5 rounded-full blur-[80px] pointer-events-none"></div>
 
       {/* ── Decorative top gradient divider ── */}
       <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-natcon-red/60 to-transparent"></div>
-      <div className="absolute top-[2px] left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-natcon-orange/30 to-transparent"></div>
 
       {/* ── Title with enhanced glow ── */}
       <motion.div
@@ -306,9 +229,8 @@ export default function AboutEvent() {
         transition={{ duration: 0.7 }}
         className="mb-4 sm:mb-6 flex items-center justify-center relative"
       >
-        {/* Multi-layered glow behind title */}
-        <div className="absolute w-80 h-24 bg-natcon-red/20 blur-[80px] rounded-full"></div>
-        <div className="absolute w-64 h-16 bg-natcon-orange/10 blur-[40px] rounded-full translate-y-2"></div>
+        {/* Glow behind title */}
+        <div className="absolute w-64 h-16 bg-natcon-red/15 blur-[40px] rounded-full"></div>
         <Image
           src="/topics/About-Natcon.png"
           alt="About Natcon"
@@ -328,15 +250,9 @@ export default function AboutEvent() {
       >
 
 
-        <div className="relative p-6 sm:p-8 md:p-12 rounded-3xl bg-gray-900/50 backdrop-blur-xl border border-white/5 shadow-2xl overflow-hidden">
-          {/* Animated top accent gradient */}
+        <div className="relative p-6 sm:p-8 md:p-12 rounded-3xl bg-gray-900/60 backdrop-blur-sm border border-white/5 shadow-2xl overflow-hidden">
+          {/* Top accent gradient */}
           <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-natcon-red via-natcon-orange to-natcon-green animate-gradient-shift"></div>
-
-          {/* Subtle inner glow */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-40 bg-natcon-red/8 blur-[60px] pointer-events-none"></div>
-
-          {/* Scanning light effect */}
-          <div className="absolute left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent animate-line-scan pointer-events-none"></div>
 
 
 
