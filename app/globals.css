@@ -32,6 +32,19 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
   overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Mobile-specific fixes */
+@media (max-width: 639px) {
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  video {
+    object-fit: cover;
+  }
 }
 
 /* Custom scrollbar */
@@ -237,9 +250,11 @@ body {
   0% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
+
   100% {
     background-position: 0% 50%;
   }
