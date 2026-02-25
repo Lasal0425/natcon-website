@@ -28,7 +28,7 @@ export default function PartnersSection() {
         {/* Title */}
         <div className="flex justify-center mb-16">
           <Image
-            src="/topics/Our-Partners.png"
+            src="/topics/our-partners.png"
             alt="Our Partners"
             width={512}
             height={64}
