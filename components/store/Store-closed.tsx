@@ -17,8 +17,8 @@ export default function Store() {
         Your browser does not support the video tag.
       </video>
 
-      {/* Dark overlay for readability */}
-      <div className="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+      {/* Dark overlay — no backdrop-blur on mobile */}
+      <div className="absolute inset-0 bg-black/50 md:backdrop-blur-sm"></div>
 
       {/* Foreground content */}
       <div className="relative z-10 max-w-4xl mx-auto px-6 flex flex-col items-center justify-center min-h-screen">

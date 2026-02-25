@@ -51,7 +51,7 @@ export default function Navbar() {
     <>
       <nav
         className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled
-          ? "bg-black/90 backdrop-blur-md shadow-lg"
+          ? "bg-black/90 md:backdrop-blur-md shadow-lg"
           : "bg-transparent"
           }`}
       >
@@ -94,7 +94,7 @@ export default function Navbar() {
             <div className="md:hidden">
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="mobile-menu-button text-white hover:text-gray-300 transition-colors duration-200 relative z-60"
+                className="mobile-menu-button text-white hover:text-gray-300 transition-colors duration-200 relative z-[60]"
                 aria-label="Toggle mobile menu"
               >
                 <svg

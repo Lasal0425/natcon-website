@@ -6,12 +6,7 @@ import Link from "next/link";
 export default function NotFound() {
   return (
     <section
-      className="relative z-20 flex flex-col items-center justify-center min-h-screen px-6 md:px-12 text-center"
-      style={{
-        backgroundColor: "rgba(0, 0, 0, 0.6)",
-        backdropFilter: "blur(12px)",
-        WebkitBackdropFilter: "blur(12px)",
-      }}
+      className="relative z-20 flex flex-col items-center justify-center min-h-screen px-6 md:px-12 text-center bg-black/60 md:backdrop-blur-lg"
     >
       {/* 404 Image */}
       {/* <div className="mb-8">
@@ -31,7 +26,7 @@ export default function NotFound() {
 
       {/* Subtext */}
       <p className="text-lg md:text-xl text-gray-300 max-w-2xl font-mono mb-8">
-        Oops! It seems like you’ve wandered off the path.  
+        Oops! It seems like you’ve wandered off the path.
         The page you’re looking for doesn’t exist or has been moved.
       </p>
 
