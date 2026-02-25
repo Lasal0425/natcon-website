@@ -1,8 +1,8 @@
-# NLDS Official Website
+# NatCon 2026 Official Website
 
-Official website of National Leadership Development Seminar 2025 by AIESEC in Sri Lanka.
+Official website of National Conference 2026 by AIESEC in Sri Lanka.
 
-**Testing deployment** - https://nlds-2025.vercel.app
+**Testing deployment** - https://natcon-psi.vercel.app
 
 # Branches Overview
 
