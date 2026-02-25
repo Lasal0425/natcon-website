@@ -19,12 +19,12 @@ export default function OrderConfirmation() {
         Your browser does not support the video tag.
       </video>
 
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+      {/* Dark overlay — no backdrop-blur on mobile */}
+      <div className="absolute inset-0 bg-black/50 md:backdrop-blur-sm"></div>
 
       {/* Foreground content */}
       <div className="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-center min-h-[70vh]">
-        <div className="bg-black/70 backdrop-blur-lg border border-white/20 rounded-2xl p-12 text-center max-w-2xl">
+        <div className="bg-black/70 md:backdrop-blur-lg border border-white/20 rounded-2xl p-12 text-center max-w-2xl">
           {/* Success Icon */}
           <div className="mb-8">
             <div className="w-24 h-24 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -137,7 +137,7 @@ export default function OrderConfirmation() {
 
           {/* Order Reference */}
           <div className="mt-8 pt-6 border-t border-white/20">
-            <p className="text-gray-400 text-sm">
+            <p className="text-gray-400 text-sm" suppressHydrationWarning>
               Order submitted on{" "}
               {new Date().toLocaleDateString("en-US", {
                 year: "numeric",

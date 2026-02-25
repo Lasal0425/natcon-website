@@ -19,11 +19,11 @@ export default function RegisterSection() {
         Your browser does not support the video tag.
       </video>
 
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-black/60 backdrop-blur-sm z-0"></div>
+      {/* Dark overlay — no backdrop-blur on mobile */}
+      <div className="absolute inset-0 bg-black/60 md:backdrop-blur-sm z-0"></div>
 
-      {/* Animated glow orbs */}
-      <div className="absolute inset-0 z-[1] pointer-events-none overflow-hidden">
+      {/* Animated glow orbs — desktop only */}
+      <div className="absolute inset-0 z-[1] pointer-events-none overflow-hidden hidden md:block">
         <div
           className="absolute w-96 h-96 bg-natcon-red/15 rounded-full blur-[120px] animate-glow-pulse"
           style={{ top: "10%", left: "-5%" }}
@@ -42,8 +42,8 @@ export default function RegisterSection() {
         ></div>
       </div>
 
-      {/* Floating particles */}
-      <div className="absolute inset-0 z-[1] pointer-events-none overflow-hidden">
+      {/* Floating particles — desktop only */}
+      <div className="absolute inset-0 z-[1] pointer-events-none overflow-hidden hidden md:block">
         {[
           { left: "8%", top: "15%", delay: "0s", size: "w-1.5 h-1.5" },
           { left: "88%", top: "25%", delay: "0.5s", size: "w-1 h-1" },
@@ -64,8 +64,8 @@ export default function RegisterSection() {
         ))}
       </div>
 
-      {/* Expanding ring pulses */}
-      <div className="absolute inset-0 z-[1] pointer-events-none">
+      {/* Expanding ring pulses — desktop only */}
+      <div className="absolute inset-0 z-[1] pointer-events-none hidden md:block">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 border-natcon-red/30 rounded-full animate-ring-expand"></div>
         <div
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 border-natcon-red/20 rounded-full animate-ring-expand"
@@ -129,19 +129,21 @@ export default function RegisterSection() {
           transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
           className="relative group w-full"
         >
-          {/* Animated Glow Border */}
-          <div className="absolute -inset-1 bg-gradient-to-r from-natcon-red via-natcon-orange via-natcon-yellow to-natcon-green rounded-3xl blur-md opacity-50 group-hover:opacity-80 transition duration-1000 group-hover:duration-200 animate-gradient-shift"></div>
+          {/* Animated Glow Border — desktop only */}
+          <div className="absolute -inset-1 bg-gradient-to-r from-natcon-red via-natcon-orange via-natcon-yellow to-natcon-green rounded-3xl blur-md opacity-50 group-hover:opacity-80 transition duration-1000 group-hover:duration-200 animate-gradient-shift hidden md:block"></div>
 
-          {/* Card with glassmorphism */}
-          <div className="relative bg-white/5 backdrop-blur-xl rounded-2xl p-2 sm:p-4 shadow-2xl overflow-hidden border border-white/10 min-h-[600px] md:min-h-[800px]">
-            {/* Corner accents */}
-            <div className="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 border-natcon-red/40 rounded-tl-2xl pointer-events-none"></div>
-            <div className="absolute top-0 right-0 w-12 h-12 border-t-2 border-r-2 border-natcon-red/40 rounded-tr-2xl pointer-events-none"></div>
-            <div className="absolute bottom-0 left-0 w-12 h-12 border-b-2 border-l-2 border-natcon-red/40 rounded-bl-2xl pointer-events-none"></div>
-            <div className="absolute bottom-0 right-0 w-12 h-12 border-b-2 border-r-2 border-natcon-red/40 rounded-br-2xl pointer-events-none"></div>
+          {/* Card with glassmorphism — lighter blur on mobile */}
+          <div className="relative bg-white/5 backdrop-blur-sm md:backdrop-blur-xl rounded-2xl p-2 sm:p-4 shadow-2xl overflow-hidden border border-white/10 min-h-[600px] md:min-h-[800px]">
+            {/* Corner accents — desktop only */}
+            <div className="hidden md:block">
+              <div className="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 border-natcon-red/40 rounded-tl-2xl pointer-events-none"></div>
+              <div className="absolute top-0 right-0 w-12 h-12 border-t-2 border-r-2 border-natcon-red/40 rounded-tr-2xl pointer-events-none"></div>
+              <div className="absolute bottom-0 left-0 w-12 h-12 border-b-2 border-l-2 border-natcon-red/40 rounded-bl-2xl pointer-events-none"></div>
+              <div className="absolute bottom-0 right-0 w-12 h-12 border-b-2 border-r-2 border-natcon-red/40 rounded-br-2xl pointer-events-none"></div>
+            </div>
 
-            {/* Scanning light bar */}
-            <div className="absolute left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-natcon-red/40 to-transparent animate-line-scan pointer-events-none"></div>
+            {/* Scanning light bar — desktop only */}
+            <div className="absolute left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-natcon-red/40 to-transparent animate-line-scan pointer-events-none hidden md:block"></div>
 
             {/* Tally form embed */}
             <Script src="https://tally.so/widgets/embed.js" />

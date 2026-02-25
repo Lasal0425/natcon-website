@@ -130,24 +130,27 @@ interface StatCardProps {
 function StatCard({ Icon, target, suffix, label, color, active, index }: StatCardProps) {
   const count = useCounter(target, 1800, active);
 
-  const colorMap: Record<string, { bg: string; text: string; border: string; glow: string }> = {
+  const colorMap: Record<string, { bg: string; text: string; border: string; glow: string; via: string }> = {
     "natcon-red": {
       bg: "bg-natcon-red/10",
       text: "text-natcon-red",
       border: "border-natcon-red/30",
       glow: "shadow-natcon-red/20",
+      via: "via-natcon-red",
     },
     "natcon-orange": {
       bg: "bg-natcon-orange/10",
       text: "text-natcon-orange",
       border: "border-natcon-orange/30",
       glow: "shadow-natcon-orange/20",
+      via: "via-natcon-orange",
     },
     "natcon-green": {
       bg: "bg-natcon-green/10",
       text: "text-natcon-green",
       border: "border-natcon-green/30",
       glow: "shadow-natcon-green/20",
+      via: "via-natcon-green",
     },
   };
 
@@ -166,7 +169,7 @@ function StatCard({ Icon, target, suffix, label, color, active, index }: StatCar
 
       <div className="relative bg-gray-900/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 flex flex-col items-center justify-center hover:scale-[1.03] transition-all duration-500 ease-out overflow-hidden border border-white/5">
         {/* Top accent line */}
-        <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-[2px] bg-gradient-to-r from-transparent via-${color} to-transparent group-hover:w-full transition-all duration-700`}></div>
+        <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-[2px] bg-gradient-to-r from-transparent ${c.via} to-transparent group-hover:w-full transition-all duration-700`}></div>
 
         {/* Hover glow */}
         <div className={`absolute inset-0 ${c.bg} opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl`}></div>
@@ -190,7 +193,7 @@ function StatCard({ Icon, target, suffix, label, color, active, index }: StatCar
         </span>
 
         {/* Bottom glow accent */}
-        <div className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-0 group-hover:w-3/4 h-[1px] bg-gradient-to-r from-transparent via-${color} to-transparent transition-all duration-700`}></div>
+        <div className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-0 group-hover:w-3/4 h-[1px] bg-gradient-to-r from-transparent ${c.via} to-transparent transition-all duration-700`}></div>
       </div>
     </motion.div>
   );
