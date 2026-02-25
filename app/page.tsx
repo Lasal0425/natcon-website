@@ -17,7 +17,7 @@ export default function Home() {
       {/* Scrollable Content Container */}
       <div className="relative z-10">
         {/* Spacer to push content down initially */}
-        <div className="h-screen"></div>
+        <div className="h-[100dvh]"></div>
 
         {/* Content sections that will scroll over the hero */}
         <div className="-mt-1">
