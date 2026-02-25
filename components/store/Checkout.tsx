@@ -596,16 +596,16 @@ export default function Checkout() {
                   </h4>
                   <ul className="space-y-1 text-gray-300 text-sm">
                     <li>
-                      <strong>Account Number:</strong> 013020424602
+                      <strong>Account Number:</strong> 115010147673
                     </li>
                     <li>
-                      <strong>Account Name:</strong> K.G.T.Tharuka
+                      <strong>Account Name:</strong> AIESEC
                     </li>
                     <li>
                       <strong>Bank:</strong> HNB
                     </li>
                     <li>
-                      <strong>Branch:</strong> Galle
+                      <strong>Branch:</strong> Kollupitiya
                     </li>
                   </ul>
                   <p className="text-xs text-gray-400 mt-2">
