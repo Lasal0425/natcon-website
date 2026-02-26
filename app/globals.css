@@ -23,14 +23,14 @@ html {
   --color-natcon-yellow: var(--natcon-yellow);
   --color-natcon-green: var(--natcon-green);
   --color-natcon-blue: var(--natcon-blue);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-poppins);
+  --font-mono: var(--font-poppins);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--font-poppins), Arial, Helvetica, sans-serif;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
 }
