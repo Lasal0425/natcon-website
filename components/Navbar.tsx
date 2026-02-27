@@ -82,9 +82,9 @@ export default function Navbar() {
                   <span className="relative">
                     {item.name}
                     <span
-                      className="absolute -bottom-1 left-0 w-0 h-0.5 group-hover:w-full transition-all duration-300 ease-out"
-                      style={{ backgroundColor: "var(--natcon-red, #ff69b4)" }}
+                      className="nav-underline"
                     ></span>
+
                   </span>
                 </a>
               ))}
@@ -179,9 +179,9 @@ export default function Navbar() {
                   <span className="relative">
                     {item.name}
                     <span
-                      className="absolute -bottom-1 left-0 w-0 h-0.5 group-hover:w-full transition-all duration-300 ease-out"
-                      style={{ backgroundColor: "var(--natcon-red, #ff69b4)" }}
+                      className="nav-underline"
                     ></span>
+
                   </span>
                 </span>
               </a>

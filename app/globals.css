@@ -92,18 +92,10 @@ body {
   }
 }
 
-.glitch {
-  animation: glitch 0.3s infinite;
-}
+
 
 /* Neon glow effect */
-.neon-glow {
-  text-shadow:
-    0 0 5px currentColor,
-    0 0 10px currentColor,
-    0 0 15px currentColor,
-    0 0 20px currentColor;
-}
+
 
 @keyframes fade-in-out {
 
@@ -120,15 +112,56 @@ body {
   }
 }
 
-.animate-fade-in-out {
-  animation: fade-in-out 2.5s ease-in-out;
-}
+
 
 @layer utilities {
   .animate-float {
     animation: float 6s ease-in-out infinite;
   }
+
+  .animate-fade-in-out {
+    animation: fade-in-out 2.5s ease-in-out;
+  }
+
+  .animate-shimmer {
+    background-size: 200% auto;
+    animation: shimmer 3s linear infinite;
+  }
+
+  .animate-glow-pulse {
+    animation: glow-pulse 3s ease-in-out infinite;
+  }
+
+  .animate-ring-expand {
+    animation: ring-expand 3s ease-out infinite;
+  }
+
+  .animate-line-scan {
+    animation: line-scan 4s ease-in-out infinite;
+  }
+
+  .animate-particle-drift {
+    animation: particle-drift 3s ease-out infinite;
+  }
+
+  .animate-gradient-shift {
+    background-size: 300% 300%;
+    animation: gradient-shift 4s ease infinite;
+  }
+
+  .glitch {
+    animation: glitch 0.3s infinite;
+  }
+
+  .neon-glow {
+    text-shadow:
+      0 0 5px currentColor,
+      0 0 10px currentColor,
+      0 0 15px currentColor,
+      0 0 20px currentColor;
+  }
 }
+
 
 @keyframes float {
   0% {
@@ -155,10 +188,7 @@ body {
   }
 }
 
-.animate-shimmer {
-  background-size: 200% auto;
-  animation: shimmer 3s linear infinite;
-}
+
 
 /* Glow pulse */
 @keyframes glow-pulse {
@@ -175,9 +205,7 @@ body {
   }
 }
 
-.animate-glow-pulse {
-  animation: glow-pulse 3s ease-in-out infinite;
-}
+
 
 /* Ring expand */
 @keyframes ring-expand {
@@ -194,9 +222,7 @@ body {
   }
 }
 
-.animate-ring-expand {
-  animation: ring-expand 3s ease-out infinite;
-}
+
 
 /* Horizontal line scan */
 @keyframes line-scan {
@@ -219,9 +245,7 @@ body {
   }
 }
 
-.animate-line-scan {
-  animation: line-scan 4s ease-in-out infinite;
-}
+
 
 /* Particle drift */
 @keyframes particle-drift {
@@ -241,9 +265,7 @@ body {
   }
 }
 
-.animate-particle-drift {
-  animation: particle-drift 3s ease-out infinite;
-}
+
 
 /* Gradient border shift */
 @keyframes gradient-shift {
@@ -260,7 +282,37 @@ body {
   }
 }
 
-.animate-gradient-shift {
-  background-size: 300% 300%;
-  animation: gradient-shift 4s ease infinite;
+
+
+@layer components {
+  .video-bg-container {
+    @apply relative py-16 min-h-screen overflow-hidden;
+  }
+
+  .video-bg-video {
+    @apply absolute inset-0 w-full h-full object-cover;
+  }
+
+  .video-bg-overlay {
+    @apply absolute inset-0 bg-black/50 backdrop-blur-sm;
+  }
+
+  .glass-card {
+    @apply bg-black/70 backdrop-blur-lg border border-white/20 rounded-2xl p-6 sm:p-8 md:p-12;
+  }
+
+  .natcon-gradient-text {
+    background-image: linear-gradient(90deg, #F02D3A, #FEAD34);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .nav-underline {
+    @apply absolute -bottom-1 left-0 w-0 h-0.5 group-hover:w-full transition-all duration-300 ease-out bg-natcon-red;
+  }
+
+  .noticia-text-regular {
+    font-family: var(--font-noticia), serif;
+  }
 }

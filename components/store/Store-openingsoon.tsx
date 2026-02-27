@@ -4,21 +4,22 @@ import Image from "next/image";
 
 export default function Store() {
   return (
-    <section className="relative min-h-screen w-full overflow-hidden">
+    <section className="video-bg-container !py-0">
       {/* Video background */}
       <video
         autoPlay
         loop
         muted
         playsInline
-        className="absolute inset-0 w-full h-full object-cover"
+        className="video-bg-video"
       >
         <source src="/background.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
       {/* Dark overlay for readability */}
-      <div className="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+      <div className="video-bg-overlay"></div>
+
 
       {/* Foreground content */}
       <div className="relative z-10 max-w-4xl mx-auto px-6 flex flex-col items-center justify-center min-h-screen">

@@ -6,21 +6,22 @@ import { motion } from "framer-motion";
 
 export default function RegisterSection() {
   return (
-    <section className="relative min-h-screen w-full flex flex-col items-center justify-center py-10 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <section className="video-bg-container !flex-col !items-center !justify-center !py-10">
       {/* Video background */}
       <video
         autoPlay
         loop
         muted
         playsInline
-        className="absolute inset-0 w-full h-full object-cover z-0"
+        className="video-bg-video"
       >
         <source src="/background.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
-      {/* Dark overlay — no backdrop-blur on mobile */}
-      <div className="absolute inset-0 bg-black/60 md:backdrop-blur-sm z-0"></div>
+      {/* Dark overlay */}
+      <div className="video-bg-overlay !bg-black/60"></div>
+
 
       {/* Animated glow orbs — desktop only */}
       <div className="absolute inset-0 z-[1] pointer-events-none overflow-hidden hidden md:block">

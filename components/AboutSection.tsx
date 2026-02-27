@@ -262,16 +262,11 @@ export default function AboutEvent() {
           <p className="text-base sm:text-lg md:text-xl leading-relaxed sm:leading-loose text-gray-200 font-sans tracking-wide relative z-10">
             The{" "}
             <span
-              className="font-bold text-xl sm:text-2xl font-mono"
-              style={{
-                backgroundImage: "linear-gradient(90deg, #F02D3A, #FEAD34)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}
+              className="font-bold text-xl sm:text-2xl font-mono natcon-gradient-text"
             >
               National Conference (NatCon){" "}
             </span>
+
             is the largest conference organized by AIESEC in Sri Lanka,
             bringing together over <span className="text-natcon-yellow font-bold">350+ delegates</span> from more than <span className="text-natcon-yellow font-bold">20 prestigious
               universities</span> across the country. It serves as a platform for

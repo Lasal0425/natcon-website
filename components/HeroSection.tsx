@@ -53,12 +53,13 @@ export default function HeroSection() {
           loop
           muted
           playsInline
-          className="absolute inset-0 w-full h-full object-cover object-center"
+          className="video-bg-video !object-center"
         >
           <source src="/mask.webm" type="video/webm" />
           <source src="/mask.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
+
       </div>
 
 
