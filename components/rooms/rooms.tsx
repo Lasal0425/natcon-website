@@ -724,13 +724,10 @@ export default function RoomSearch() {
 
   return (
     <section
-      className="relative z-20 py-16 px-6 md:px-12 min-h-screen font-mono"
-      style={{
-        backgroundColor: "rgba(0,0,0,0.5)",
-        backdropFilter: "blur(10px)",
-        WebkitBackdropFilter: "blur(10px)",
-      }}
+      className="video-bg-container !px-6 md:!px-12 font-mono"
     >
+      <div className="video-bg-overlay"></div>
+
       <div className="max-w-4xl mx-auto">
         <div className="bg-gray-900 border-2 border-natcon-green hover:border-natcon-red 
                         rounded-2xl p-8 shadow-xl transition-all duration-300 ease-in-out hover:scale-105">
@@ -777,8 +774,8 @@ export default function RoomSearch() {
               <div className="flex items-center justify-between mb-4">
                 <h2 className="text-2xl font-bold text-natcon-green">Room {searchResult.roomNo}</h2>
                 <span className={`px-4 py-1 rounded-full text-sm font-semibold ${searchResult.gender === 'Male'
-                    ? 'bg-natcon-blue/50 text-blue-300'
-                    : 'bg-natcon-red/20 text-natcon-red'
+                  ? 'bg-natcon-blue/50 text-blue-300'
+                  : 'bg-natcon-red/20 text-natcon-red'
                   }`}>
                   {searchResult.gender}
                 </span>
@@ -811,8 +808,8 @@ export default function RoomSearch() {
                     <div
                       key={index}
                       className={`p-3 rounded-lg border transition-all ${occupant.name.toLowerCase().includes(searchTerm.toLowerCase())
-                          ? 'bg-natcon-red border-natcon-red text-white'
-                          : 'bg-gray-900 border-gray-700 text-gray-200'
+                        ? 'bg-natcon-red border-natcon-red text-white'
+                        : 'bg-gray-900 border-gray-700 text-gray-200'
                         }`}
                     >
                       <div className="font-medium">{occupant.name}</div>

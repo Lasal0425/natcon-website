@@ -73,22 +73,24 @@ export default function Checkout() {
   // Redirect if cart is empty
   if (cartItems.length === 0) {
     return (
-      <section className="relative py-16 min-h-screen overflow-hidden">
+      <section className="video-bg-container">
         <video
           autoPlay
           loop
           muted
           playsInline
-          className="absolute inset-0 w-full h-full object-cover"
+          className="video-bg-video"
         >
           <source src="/background.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
 
-        <div className="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+        <div className="video-bg-overlay"></div>
+
 
         <div className="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-center min-h-[60vh]">
-          <div className="bg-black/70 backdrop-blur-lg border border-white/20 rounded-2xl p-12 text-center">
+          <div className="glass-card text-center !p-12">
+
             <div className="text-6xl mb-6">🛒</div>
             <h2 className="text-2xl font-semibold text-white mb-4">
               Your cart is empty
@@ -335,22 +337,24 @@ export default function Checkout() {
 
   if (submitStatus === "success") {
     return (
-      <section className="relative py-16 min-h-screen overflow-hidden">
+      <section className="video-bg-container">
         <video
           autoPlay
           loop
           muted
           playsInline
-          className="absolute inset-0 w-full h-full object-cover"
+          className="video-bg-video"
         >
           <source src="/squid-game-bg.webm" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
 
-        <div className="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+        <div className="video-bg-overlay"></div>
+
 
         <div className="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-center min-h-[60vh]">
-          <div className="bg-black/70 backdrop-blur-lg border border-white/20 rounded-2xl p-12 text-center">
+          <div className="glass-card text-center !p-12">
+
             <div className="text-6xl mb-6">✅</div>
             <h2 className="text-3xl font-semibold text-white mb-4">
               Order Submitted Successfully!
@@ -371,19 +375,20 @@ export default function Checkout() {
   }
 
   return (
-    <section className="relative py-16 min-h-screen overflow-hidden">
+    <section className="video-bg-container">
       <video
         autoPlay
         loop
         muted
         playsInline
-        className="absolute inset-0 w-full h-full object-cover"
+        className="video-bg-video"
       >
         <source src="/squid-game-bg.webm" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
-      <div className="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+      <div className="video-bg-overlay"></div>
+
 
       <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Title */}
@@ -397,7 +402,8 @@ export default function Checkout() {
         <div className="grid gap-8 lg:grid-cols-2">
           {/* Order Summary */}
           <div className="order-2 lg:order-1">
-            <div className="bg-black/70 backdrop-blur-lg border border-white/20 rounded-2xl p-6">
+            <div className="glass-card">
+
               <h3 className="text-xl font-semibold text-white mb-6">
                 Order Summary
               </h3>
@@ -454,7 +460,8 @@ export default function Checkout() {
 
           {/* Checkout Form */}
           <div className="order-1 lg:order-2">
-            <div className="bg-black/70 backdrop-blur-lg border border-white/20 rounded-2xl p-6">
+            <div className="glass-card">
+
               <h3 className="text-xl font-semibold text-white mb-6">
                 Customer Information
               </h3>

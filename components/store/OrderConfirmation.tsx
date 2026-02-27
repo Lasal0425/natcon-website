@@ -6,25 +6,28 @@ export default function OrderConfirmation() {
   const router = useRouter();
 
   return (
-    <section className="relative py-16 min-h-screen overflow-hidden">
+    <section className="video-bg-container">
       {/* Video background */}
       <video
         autoPlay
         loop
         muted
         playsInline
-        className="absolute inset-0 w-full h-full object-cover"
+        className="video-bg-video"
       >
         <source src="/background.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
-      {/* Dark overlay — no backdrop-blur on mobile */}
-      <div className="absolute inset-0 bg-black/50 md:backdrop-blur-sm"></div>
+      {/* Dark overlay */}
+      <div className="video-bg-overlay"></div>
+
 
       {/* Foreground content */}
       <div className="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-center min-h-[70vh]">
-        <div className="bg-black/70 md:backdrop-blur-lg border border-white/20 rounded-2xl p-12 text-center max-w-2xl">
+        <div className="glass-card text-center max-w-2xl">
+
+
           {/* Success Icon */}
           <div className="mb-8">
             <div className="w-24 h-24 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
