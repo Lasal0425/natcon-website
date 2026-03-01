@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { mainPartners, refreshmentsPartners, otherPartners } from "../../constants/Partners";
 
 const COMING_SOON = true;
@@ -27,13 +28,37 @@ export default function PartnersSection() {
       <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
         {/* Title */}
         <div className="flex justify-center mb-16">
-          <Image
-            src="/topics/our-partners.png"
-            alt="Our Partners"
-            width={512}
-            height={64}
-            className="w-auto h-16 sm:h-20 md:h-28 hover:scale-105 transition-transform duration-300"
-          />
+          <motion.div
+            initial={{ opacity: 0, y: -30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <motion.div
+              animate={{
+                y: [0, -12, 0],
+                filter: [
+                  "drop-shadow(0 0 15px rgba(240,45,58,0.4))",
+                  "drop-shadow(0 0 30px rgba(240,45,58,0.7))",
+                  "drop-shadow(0 0 15px rgba(240,45,58,0.4))"
+                ]
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            >
+              <Image
+                src="/topics/our-partners.png"
+                alt="Our Partners"
+                width={512}
+                height={64}
+                className="w-auto h-16 sm:h-20 md:h-28"
+                priority
+              />
+            </motion.div>
+          </motion.div>
         </div>
 
         {COMING_SOON ? (
