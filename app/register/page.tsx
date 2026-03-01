@@ -7,6 +7,13 @@ export const metadata = {
   description: "Register for NatCon 2026 Local Delegates",
 };
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
+
 export default function Home() {
   return (
     <div className="min-h-screen bg-black text-white flex flex-col">
