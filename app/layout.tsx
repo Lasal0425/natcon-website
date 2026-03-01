@@ -1,6 +1,17 @@
 import { Poppins, Noticia_Text } from "next/font/google";
 import "./globals.css";
 import { CartProvider } from "@/contexts/CartContext";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "NatCon 2026",
+  description: "National Conference 2026",
+  icons: {
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
+  },
+};
 
 const poppins = Poppins({
   variable: "--font-poppins",

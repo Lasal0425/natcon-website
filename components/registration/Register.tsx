@@ -134,24 +134,36 @@ export default function RegisterSection() {
           <div className="absolute -inset-1 bg-gradient-to-r from-natcon-red via-natcon-orange via-natcon-yellow to-natcon-green rounded-3xl blur-md opacity-50 group-hover:opacity-80 transition duration-1000 group-hover:duration-200 animate-gradient-shift hidden md:block"></div>
 
           {/* Card with glassmorphism — lighter blur on mobile */}
-          <div className="relative bg-white/5 backdrop-blur-sm md:backdrop-blur-xl rounded-2xl p-2 sm:p-4 shadow-2xl overflow-hidden border border-white/10 min-h-[600px] md:min-h-[800px]">
+          <div className="relative bg-white/5 backdrop-blur-sm md:backdrop-blur-xl rounded-2xl shadow-2xl overflow-hidden border border-white/10 min-h-[600px] md:min-h-[800px]">
             {/* Corner accents — desktop only */}
             <div className="hidden md:block">
-              <div className="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 border-natcon-red/40 rounded-tl-2xl pointer-events-none"></div>
-              <div className="absolute top-0 right-0 w-12 h-12 border-t-2 border-r-2 border-natcon-red/40 rounded-tr-2xl pointer-events-none"></div>
-              <div className="absolute bottom-0 left-0 w-12 h-12 border-b-2 border-l-2 border-natcon-red/40 rounded-bl-2xl pointer-events-none"></div>
-              <div className="absolute bottom-0 right-0 w-12 h-12 border-b-2 border-r-2 border-natcon-red/40 rounded-br-2xl pointer-events-none"></div>
+              <div className="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 border-natcon-red/40 rounded-tl-2xl pointer-events-none z-20"></div>
+              <div className="absolute top-0 right-0 w-12 h-12 border-t-2 border-r-2 border-natcon-red/40 rounded-tr-2xl pointer-events-none z-20"></div>
+              <div className="absolute bottom-0 left-0 w-12 h-12 border-b-2 border-l-2 border-natcon-red/40 rounded-bl-2xl pointer-events-none z-20"></div>
+              <div className="absolute bottom-0 right-0 w-12 h-12 border-b-2 border-r-2 border-natcon-red/40 rounded-br-2xl pointer-events-none z-20"></div>
             </div>
 
             {/* Scanning light bar — desktop only */}
-            <div className="absolute left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-natcon-red/40 to-transparent animate-line-scan pointer-events-none hidden md:block"></div>
+            <div className="absolute left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-natcon-red/40 to-transparent animate-line-scan pointer-events-none hidden md:block z-20"></div>
 
             {/* Tally form embed */}
             <Script src="https://tally.so/widgets/embed.js" />
             <iframe
-              data-tally-src="https://tally.so/r/gDqXN4?transparent=1"
-              className="w-full h-full border-0 min-h-[600px] md:min-h-[800px]"
-              title="Local Delegates Registration - NatCon 2026"
+              data-tally-src="https://tally.so/r/gDqXN4?transparentBackground=1"
+              width="100%"
+              height="100%"
+              frameBorder="0"
+              marginHeight={0}
+              marginWidth={0}
+              title="null"
+              style={{
+                position: "absolute",
+                top: 0,
+                right: 0,
+                bottom: 0,
+                left: 0,
+                border: 0,
+              }}
             ></iframe>
           </div>
         </motion.div>
