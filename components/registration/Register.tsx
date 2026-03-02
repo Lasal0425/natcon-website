@@ -130,41 +130,65 @@ export default function RegisterSection() {
           transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
           className="relative group w-full"
         >
-          {/* Animated Glow Border — desktop only */}
+          {/* Animated Glow Border — desktop */}
           <div className="absolute -inset-1 bg-gradient-to-r from-natcon-red via-natcon-orange via-natcon-yellow to-natcon-green rounded-3xl blur-md opacity-50 group-hover:opacity-80 transition duration-1000 group-hover:duration-200 animate-gradient-shift hidden md:block"></div>
 
+          {/* Animated Glow Border — mobile (subtler) */}
+          <div className="absolute -inset-0.5 bg-gradient-to-r from-natcon-red/60 via-natcon-orange/50 via-natcon-yellow/40 to-natcon-green/50 rounded-2xl blur-sm opacity-60 animate-gradient-shift md:hidden"></div>
+
           {/* Card with glassmorphism — lighter blur on mobile */}
-          <div className="relative bg-white/5 backdrop-blur-sm md:backdrop-blur-xl rounded-2xl shadow-2xl overflow-hidden border border-white/10 min-h-[600px] md:min-h-[800px]">
-            {/* Corner accents — desktop only */}
-            <div className="hidden md:block">
-              <div className="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 border-natcon-red/40 rounded-tl-2xl pointer-events-none z-20"></div>
-              <div className="absolute top-0 right-0 w-12 h-12 border-t-2 border-r-2 border-natcon-red/40 rounded-tr-2xl pointer-events-none z-20"></div>
-              <div className="absolute bottom-0 left-0 w-12 h-12 border-b-2 border-l-2 border-natcon-red/40 rounded-bl-2xl pointer-events-none z-20"></div>
-              <div className="absolute bottom-0 right-0 w-12 h-12 border-b-2 border-r-2 border-natcon-red/40 rounded-br-2xl pointer-events-none z-20"></div>
+          <div className="relative bg-white/90 md:bg-white/5 backdrop-blur-md md:backdrop-blur-xl rounded-2xl shadow-2xl overflow-hidden border border-white/20 md:border-white/10 min-h-[600px] md:min-h-[800px]">
+
+            {/* Mobile-only decorative glow blobs */}
+            <div className="absolute inset-0 pointer-events-none overflow-hidden z-[1] md:hidden">
+              <div
+                className="absolute w-40 h-40 bg-natcon-red/10 rounded-full blur-[80px] animate-glow-pulse"
+                style={{ top: "-5%", left: "-10%" }}
+              ></div>
+              <div
+                className="absolute w-36 h-36 bg-natcon-green/8 rounded-full blur-[70px] animate-glow-pulse"
+                style={{ bottom: "5%", right: "-8%", animationDelay: "1.5s" }}
+              ></div>
+              <div
+                className="absolute w-32 h-32 bg-natcon-orange/8 rounded-full blur-[60px] animate-glow-pulse"
+                style={{ top: "40%", right: "-5%", animationDelay: "0.8s" }}
+              ></div>
+              <div
+                className="absolute w-28 h-28 bg-natcon-yellow/6 rounded-full blur-[50px] animate-glow-pulse"
+                style={{ top: "60%", left: "-5%", animationDelay: "2s" }}
+              ></div>
             </div>
 
-            {/* Scanning light bar — desktop only */}
-            <div className="absolute left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-natcon-red/40 to-transparent animate-line-scan pointer-events-none hidden md:block z-20"></div>
+            {/* Corner accents — both mobile and desktop */}
+            <div className="absolute top-0 left-0 w-8 h-8 md:w-12 md:h-12 border-t-2 border-l-2 border-natcon-red/30 md:border-natcon-red/40 rounded-tl-2xl pointer-events-none z-20"></div>
+            <div className="absolute top-0 right-0 w-8 h-8 md:w-12 md:h-12 border-t-2 border-r-2 border-natcon-orange/30 md:border-natcon-red/40 rounded-tr-2xl pointer-events-none z-20"></div>
+            <div className="absolute bottom-0 left-0 w-8 h-8 md:w-12 md:h-12 border-b-2 border-l-2 border-natcon-green/30 md:border-natcon-red/40 rounded-bl-2xl pointer-events-none z-20"></div>
+            <div className="absolute bottom-0 right-0 w-8 h-8 md:w-12 md:h-12 border-b-2 border-r-2 border-natcon-yellow/30 md:border-natcon-red/40 rounded-br-2xl pointer-events-none z-20"></div>
+
+            {/* Scanning light bar — both mobile and desktop */}
+            <div className="absolute left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-natcon-red/20 md:via-natcon-red/40 to-transparent animate-line-scan pointer-events-none z-20"></div>
 
             {/* Tally form embed */}
             <Script src="https://tally.so/widgets/embed.js" />
-            <iframe
-              data-tally-src="https://tally.so/r/gDqXN4?transparentBackground=1"
-              width="100%"
-              height="100%"
-              frameBorder="0"
-              marginHeight={0}
-              marginWidth={0}
-              title="null"
-              style={{
-                position: "absolute",
-                top: 0,
-                right: 0,
-                bottom: 0,
-                left: 0,
-                border: 0,
-              }}
-            ></iframe>
+            <div className="absolute inset-0 px-2 sm:px-0">
+              <iframe
+                data-tally-src="https://tally.so/r/gDqXN4?transparentBackground=1"
+                width="100%"
+                height="100%"
+                frameBorder="0"
+                marginHeight={0}
+                marginWidth={0}
+                title="null"
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  right: 0,
+                  bottom: 0,
+                  left: 0,
+                  border: 0,
+                }}
+              ></iframe>
+            </div>
           </div>
         </motion.div>
       </div>
