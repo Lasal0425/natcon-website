@@ -36,9 +36,9 @@ export const MERCH_ITEMS: MerchItem[] = [
     type: "accessory"
   }, 
   {
-    name: "Bucket Hat (double sided)",
+    name: "Tote Bag",
     price: "1400",
-    images: ["/merch/bucket-hat.webp"],
+    images: ["/merch/tote-bag.webp"],
     type: "accessory"
   },
   {

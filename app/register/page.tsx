@@ -1,5 +1,5 @@
 import Navbar from "@/components/Navbar";
-import RegisterSection from "@/components/registration/Register";
+import RegistrationsClosed from "@/components/registration/RegistrationsClosed";
 import Footer from "@/components/Footer";
 
 export const metadata = {
@@ -21,7 +21,7 @@ export default function Home() {
         <Navbar />
       </div>
       <main className="flex-1 w-full">
-        <RegisterSection />
+        <RegistrationsClosed />
       </main>
       <div className="flex-shrink-0">
         <Footer />
