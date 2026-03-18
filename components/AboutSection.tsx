@@ -207,7 +207,7 @@ function StatCard({ Icon, target, suffix, label, color, active, index }: StatCar
 // ─── Main component ───────────────────────────────────────────────────────
 
 export default function AboutEvent() {
-  const COMING_SOON = true;
+  const COMING_SOON = false;
   const statsRef = useRef<HTMLDivElement>(null);
   const statsVisible = useInView(statsRef, { once: true, margin: "-60px" });
 
@@ -352,35 +352,6 @@ export default function AboutEvent() {
         </motion.div>
       ) : (
         <>
-          {/* ── Watch Trailer ── */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-10 font-mono"
-          >
-            <h2 className="text-4xl md:text-5xl font-extrabold tracking-wider text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">
-              Watch Trailer
-            </h2>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="max-w-5xl mx-auto mb-16 rounded-2xl overflow-hidden shadow-2xl border border-gray-800"
-          >
-            <div className="aspect-video w-full">
-              <iframe
-                className="w-full h-full"
-                src="https://www.youtube.com/embed/g5W1SHX7Pc8"
-                title="NatCon Trailer"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
-            </div>
-          </motion.div>
 
           {/* ── Details (Location + Date) ── */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-12 font-mono">
@@ -424,7 +395,7 @@ export default function AboutEvent() {
             className="text-center mb-10 font-mono pt-5"
           >
             <h2 className="text-4xl md:text-5xl font-extrabold tracking-wider text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">
-              Location Reveal
+              Where it all happens
             </h2>
           </motion.div>
 
@@ -434,15 +405,14 @@ export default function AboutEvent() {
             viewport={{ once: true }}
             className="max-w-5xl mx-auto mb-16 rounded-2xl overflow-hidden shadow-2xl border border-gray-800"
           >
-            <div className="aspect-video w-full">
-              <iframe
-                className="w-full h-full"
-                src="https://www.youtube.com/embed/CHTtsI7xGx8"
-                title="Location Reveal"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
+            <div className="aspect-video w-full bg-black rounded-2xl">
+              <video
+                className="w-full h-full rounded-2xl"
+                src="/location.mp4"
+                controls
+                playsInline
+                preload="metadata"
+              />
             </div>
           </motion.div>
         </>

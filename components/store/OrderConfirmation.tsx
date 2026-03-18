@@ -92,7 +92,7 @@ export default function OrderConfirmation() {
               Questions about your order?
             </h3>
             <p className="text-gray-300 mb-5">
-              Our Organizing Committee is here to help. Reach out to us:
+              Our Core Committee is here to help. Reach out to us:
             </p>
 
             <div className="space-y-3">
@@ -100,8 +100,8 @@ export default function OrderConfirmation() {
                 <span className="text-natcon-green text-lg"></span>
                 <div>
                   <p className="text-natcon-green noticia-text-regular">
-                    <a href="mailto:nivedhitha@aiesec.net" className="text-natcon-green font-semibold hover:underline"> 📧 nivedhitha@aiesec.net</a>
-                    <span className="text-natcon-orange font-semibold"> (+94 74 293 6786)</span>
+                    <a href="mailto:nivedhitha@aiesec.net" className="text-natcon-green font-semibold hover:underline"> 📧 nethumuduwana03@aiesec.net</a>
+                    <span className="text-natcon-orange font-semibold"> (+94 71 694 9032)</span>
                   </p>
                   <p className="text-gray-400 text-sm"></p>
                 </div>
@@ -111,8 +111,8 @@ export default function OrderConfirmation() {
                 <span className="text-natcon-green text-lg"></span>
                 <div>
                   <p className="text-natcon-green noticia-text-regular">
-                    <a href="mailto:mihisarajayathilaka@aiesec.net" className="text-natcon-green font-semibold hover:underline"> 📧 mihisarajayathilaka@aiesec.net</a>
-                    <span className="text-natcon-orange font-semibold"> (+94 70 717 7132)</span>
+                    <a href="mailto:mihisarajayathilaka@aiesec.net" className="text-natcon-green font-semibold hover:underline"> 📧 manthila@aiesec.net</a>
+                    <span className="text-natcon-orange font-semibold"> (+94 71 943 2075)</span>
                   </p>
                   <p className="text-gray-400 text-sm"></p>
                 </div>

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 
-export default function Store() {
+export default function RegistrationsClosed() {
   return (
     <section className="relative min-h-screen w-full overflow-hidden">
       {/* Video background */}
@@ -36,7 +36,7 @@ export default function Store() {
         {/* Animated Text */}
         <div className="text-center font-mono pt-10">
           <h2 className="text-2xl md:text-4xl font-extrabold tracking-wide text-white animate-pulse">
-            <span className="text-red-700">Red light!</span> Registrations are now closed.
+            <span className="text-red-700">Oops!</span> Registrations are now closed.
           </h2>
         </div>
       </div>
