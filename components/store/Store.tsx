@@ -23,20 +23,11 @@ function SizeChartModal({
   const sizeCharts = {
     tshirt: {
       title: "Crew Neck Tee Size Chart",
-      image: "/merch/crewneck-size-chart.webp",
-    },
-    oversized: {
-      title: "Oversized Tee Size Chart",
-      image: "/merch/oversized-size-chart.webp",
+      image: "/merch/size chart.png",
     },
     pack: {
       title: "Crew Neck Tee Size Chart",
-      image: "/merch/crewneck-size-chart.webp",
-    },
-    // Add specific pack types
-    packOversized: {
-      title: "Oversized Tee Size Chart",
-      image: "/merch/oversized-size-chart.webp",
+      image: "/merch/size chart.png",
     },
   };
 
@@ -44,7 +35,7 @@ function SizeChartModal({
 
   return (
     <div className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-      <div className="bg-natcon-blue border-2 border-natcon-green rounded-2xl p-6 max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+      <div className="bg-black border-2 border-natcon-green rounded-2xl p-6 max-w-4xl w-full max-h-[90vh] overflow-y-auto">
         {/* Header */}
         <div className="flex justify-between items-center mb-6">
           <h3 className="text-2xl font-bold text-white">{chart.title}</h3>
@@ -57,13 +48,13 @@ function SizeChartModal({
         </div>
 
         {/* Size Chart Image */}
-        <div className="flex justify-center mb-6">
-          <div className="relative w-full max-w-lg aspect-square">
-            <Image
+        <div className="flex justify-center mb-6 w-full">
+          <div className="w-full relative flex justify-center mx-auto">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
               src={chart.image}
               alt={chart.title}
-              fill
-              className="object-contain rounded-xl"
+              className="max-w-full max-h-[65vh] w-auto h-auto object-contain rounded-xl shadow-lg"
             />
           </div>
         </div>
@@ -138,11 +129,6 @@ export default function Store() {
 
   // Helper function to determine size chart type for merch packs
   const getSizeChartTypeForPack = (product: MerchItem): string => {
-    // Check if the product name contains "oversized" (case-insensitive)
-    if (product.name.toLowerCase().includes('oversized')) {
-      return 'packOversized';
-    }
-    // You can add more conditions here based on your product naming or add a sizeChartType property to MerchItem
     return 'pack';
   };
 
@@ -152,129 +138,128 @@ export default function Store() {
   const accessories = MERCH_ITEMS.filter((item) => item.type === "accessory");
 
   return (
-    <section className="relative py-16 overflow-hidden">
-      {/* Video background */}
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover"
-      >
-        <source src="/background.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+    <>
+      <section className="relative py-16 overflow-hidden">
+        {/* Video background */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/background.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
 
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
 
-      {/* Foreground content */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Title */}
-        <div className="mt-10 mb-4 flex items-center justify-center pb-4">
-          <Image
-            src="/topics/STORE.png"
-            alt="Store"
-            width={512}
-            height={64}
-            className="w-3/4 sm:w-2/3 md:w-1/2 lg:w-auto h-auto hover:scale-105 hover:shadow-xl rounded-2xl transition-all duration-300 ease-in-out"
-          />
-        </div>
+        {/* Foreground content */}
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Title */}
+          <div className="mt-10 mb-4 flex items-center justify-center pb-4">
+            <Image
+              src="/topics/STORE.png"
+              alt="Store"
+              width={512}
+              height={64}
+              className="w-3/4 sm:w-2/3 md:w-1/2 lg:w-auto h-auto hover:scale-105 hover:shadow-xl rounded-2xl transition-all duration-300 ease-in-out"
+            />
+          </div>
 
-        {/* Merch Packs Section */}
-        {merchPacks.length > 0 && (
-          <div className="mb-16">
+          {/* Merch Packs Section */}
+          {merchPacks.length > 0 && (
+            <div className="mb-16">
+              <div className="text-center mb-8">
+                <h2 className="text-3xl font-bold text-white mb-2">Merch Packs</h2>
+                <p className="text-gray-300">
+                  From කොළඹ streets to wild escapes, our ultimate survival bundle has you covered built for the bold, made for the island.
+                </p>
+              </div>
+              <div className="space-y-8 max-w-7xl mx-auto">
+                {merchPacks.map((merchPack, index) => (
+                  <div key={index} className="flex justify-center">
+                    <div className="w-full">
+                      <MerchPackCard
+                        product={merchPack}
+                        onAddToCart={handleAddToCart}
+                        onOpenSizeChart={() => openSizeChart(getSizeChartTypeForPack(merchPack))}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* T-Shirts Section */}
+          <div className="mb-12">
             <div className="text-center mb-8">
-              <h2 className="text-3xl font-bold text-white mb-2">Merch Packs</h2>
+              <h2 className="text-3xl font-bold text-white mb-2">T-Shirts</h2>
               <p className="text-gray-300">
-                Enter the game with our ultimate survival bundles!
+                Premium tees inspired by Sri Lankan vibes ready for the heat, the hustle, and every challenge you face.
               </p>
             </div>
-            <div className="space-y-8 max-w-7xl mx-auto">
-              {merchPacks.map((merchPack, index) => (
-                <div key={index} className="flex justify-center">
-                  <div className="w-full">
-                    <MerchPackCard
-                      product={merchPack}
-                      onAddToCart={handleAddToCart}
-                      onOpenSizeChart={() => openSizeChart(getSizeChartTypeForPack(merchPack))}
-                    />
-                  </div>
-                </div>
+            <div className={`grid gap-6 sm:grid-cols-1 ${tshirts.length === 1 ? 'max-w-lg mx-auto' : 'lg:grid-cols-2'}`}>
+              {tshirts.map((product, index) => (
+                <ProductCard
+                  key={index}
+                  product={product}
+                  onAddToCart={handleAddToCart}
+                  onOpenSizeChart={() => {
+                    openSizeChart("tshirt");
+                  }}
+                />
               ))}
             </div>
           </div>
-        )}
 
-        {/* T-Shirts Section */}
-        <div className="mb-12">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-white mb-2">T-Shirts</h2>
-            <p className="text-gray-300">
-              Suit up in our premium tees, player-approved for any deadly
-              challenge.
-            </p>
+          {/* Accessories Section */}
+          <div className="mb-12">
+            <div className="text-center mb-8">
+              <h2 className="text-3xl font-bold text-white mb-2">Accessories</h2>
+              <p className="text-gray-300">
+                From bold street pieces to culture-inspired gear, these accessories bring the Lankan edge to every move you make.
+              </p>
+            </div>
+            <div className={`grid gap-6 sm:grid-cols-1 md:grid-cols-2 ${accessories.length <= 2 ? 'max-w-3xl mx-auto' : 'lg:grid-cols-3 xl:grid-cols-4'}`}>
+              {accessories.map((product, index) => (
+                <ProductCard
+                  key={index}
+                  product={product}
+                  onAddToCart={handleAddToCart}
+                />
+              ))}
+            </div>
           </div>
-          <div className="grid gap-6 sm:grid-cols-1 lg:grid-cols-2">
-            {tshirts.map((product, index) => (
-              <ProductCard
-                key={index}
-                product={product}
-                onAddToCart={handleAddToCart}
-                onOpenSizeChart={() => {
-                  const isOversized = product.name.toLowerCase().includes('oversized');
-                  openSizeChart(isOversized ? "oversized" : "tshirt");
-                }}
-              />
-            ))}
-          </div>
-        </div>
 
-        {/* Accessories Section */}
-        <div className="mb-12">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-white mb-2">Accessories</h2>
-            <p className="text-gray-300">
-              Mask your identity and level up with these game-changing
-              accessories.
-            </p>
-          </div>
-          <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {accessories.map((product, index) => (
-              <ProductCard
-                key={index}
-                product={product}
-                onAddToCart={handleAddToCart}
-              />
-            ))}
+          {/* View Cart Button */}
+          <div className="flex justify-center mt-12 pb-8">
+            <button
+              onClick={handleViewCart}
+              className="bg-natcon-green hover:bg-natcon-green/80 text-white py-4 px-8 rounded-xl transition-all duration-300 font-semibold text-lg shadow-lg hover:shadow-xl hover:scale-105 border-2 border-white/20"
+            >
+              View Cart
+            </button>
           </div>
         </div>
 
-        {/* View Cart Button */}
-        <div className="flex justify-center mt-12 pb-8">
-          <button
-            onClick={handleViewCart}
-            className="bg-natcon-green hover:bg-natcon-green/80 text-white py-4 px-8 rounded-xl transition-all duration-300 font-semibold text-lg shadow-lg hover:shadow-xl hover:scale-105 border-2 border-white/20"
-          >
-            View Cart
-          </button>
-        </div>
-      </div>
+        {/* Size Chart Modal */}
+        <SizeChartModal
+          isOpen={sizeChartOpen}
+          onClose={closeSizeChart}
+          productType={sizeChartType}
+        />
+      </section>
 
-      {/* Size Chart Modal */}
-      <SizeChartModal
-        isOpen={sizeChartOpen}
-        onClose={closeSizeChart}
-        productType={sizeChartType}
-      />
-
-      {/* Popup Message */}
+      {/* Popup Message - outside overflow-hidden section so it's always visible */}
       {popupMessage && (
         <div className="fixed bottom-5 left-1/2 -translate-x-1/2 bg-natcon-blue border-2 border-natcon-green text-white py-3 px-6 rounded-xl shadow-xl text-center z-50 animate-fade-in-out opacity-80">
           {popupMessage}
         </div>
       )}
-    </section>
+    </>
   );
 }
 
@@ -352,12 +337,12 @@ function MerchPackCard({
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
-        <div className="relative w-full h-full">
+        <div className="relative w-full h-full min-h-[300px]">
           <Image
             src={mainImage}
             alt={product.name}
             fill
-            className="object-contain transition-transform duration-300"
+            className="object-contain transition-transform duration-300 scale-[2.2]"
           />
         </div>
 
@@ -412,8 +397,8 @@ function MerchPackCard({
                   key={size}
                   onClick={() => setSelectedSize(size)}
                   className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${selectedSize === size
-                      ? "bg-natcon-red text-white shadow-lg scale-105"
-                      : "bg-white/10 text-gray-300 hover:bg-white/20 hover:scale-105"
+                    ? "bg-natcon-red text-white shadow-lg scale-105"
+                    : "bg-white/10 text-gray-300 hover:bg-white/20 hover:scale-105"
                     }`}
                 >
                   {size}
@@ -435,8 +420,8 @@ function MerchPackCard({
                   key={color}
                   onClick={() => setSelectedColor(color)}
                   className={`px-6 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${selectedColor === color
-                      ? "bg-natcon-red text-white shadow-lg scale-105"
-                      : "bg-white/10 text-gray-300 hover:bg-white/20 hover:scale-105"
+                    ? "bg-natcon-red text-white shadow-lg scale-105"
+                    : "bg-white/10 text-gray-300 hover:bg-white/20 hover:scale-105"
                     }`}
                 >
                   {color}
@@ -542,7 +527,8 @@ function ProductCard({
             src={mainImage}
             alt={product.name}
             fill
-            className="object-contain transition-transform duration-300"
+            className={`object-contain transition-transform duration-300 ${["Pouch", "Tote Bag"].includes(product.name) ? "scale-[1.4]" : ""
+              }`}
           />
         </div>
 
@@ -570,70 +556,43 @@ function ProductCard({
       {/* Content section */}
       <div className="p-4 text-center flex flex-col flex-grow space-y-4">
         <h3 className="text-lg font-semibold text-white">{product.name}</h3>
-        <p className="text-gray-300 text-xl font-medium">{displayPrice} LKR</p>
-
-        {/* Size Selector */}
-        {product.type === "tshirt" && product.sizes && (
-          <div className="space-y-2">
-            <div className="flex items-center justify-center gap-2">
-              <label className="text-sm text-gray-300 block">Size:</label>
-              {onOpenSizeChart && (
-                <button
-                  onClick={onOpenSizeChart}
-                  className="text-xs text-natcon-green hover:text-natcon-green/80 underline transition-colors duration-200"
-                >
-                  View Size Chart
-                </button>
-              )}
-            </div>
-            <div className="flex flex-wrap gap-2 justify-center">
-              {product.sizes.map((size) => (
-                <button
-                  key={size}
-                  onClick={() => setSelectedSize(size)}
-                  className={`px-3 py-1 rounded-lg text-sm font-medium transition-colors duration-200 ${selectedSize === size
-                      ? "bg-natcon-red text-white"
-                      : "bg-white/10 text-gray-300 hover:bg-white/20"
-                    }`}
-                >
-                  {size}
-                </button>
-              ))}
-            </div>
-          </div>
-        )}
+        {product.type !== 'tshirt' && <p className="text-gray-300 text-xl font-medium">{displayPrice} LKR</p>}
 
         {/* Quantity Selector */}
-        <div className="space-y-2">
-          <label className="text-sm text-gray-300 block">Quantity:</label>
-          <div className="flex items-center justify-center gap-3">
-            <button
-              onClick={() => handleQuantityChange(false)}
-              disabled={quantity <= 1}
-              className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 disabled:opacity-50 disabled:cursor-not-allowed text-white flex items-center justify-center transition-colors duration-200"
-            >
-              -
-            </button>
-            <span className="text-white font-medium text-lg min-w-[2rem] text-center">
-              {quantity}
-            </span>
-            <button
-              onClick={() => handleQuantityChange(true)}
-              className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors duration-200"
-            >
-              +
-            </button>
-          </div>
-        </div>
+        {product.type !== 'tshirt' && (
+          <>
+            <div className="space-y-2">
+              <label className="text-sm text-gray-300 block">Quantity:</label>
+              <div className="flex items-center justify-center gap-3">
+                <button
+                  onClick={() => handleQuantityChange(false)}
+                  disabled={quantity <= 1}
+                  className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 disabled:opacity-50 disabled:cursor-not-allowed text-white flex items-center justify-center transition-colors duration-200"
+                >
+                  -
+                </button>
+                <span className="text-white font-medium text-lg min-w-[2rem] text-center">
+                  {quantity}
+                </span>
+                <button
+                  onClick={() => handleQuantityChange(true)}
+                  className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors duration-200"
+                >
+                  +
+                </button>
+              </div>
+            </div>
 
-        <button
-          onClick={() =>
-            onAddToCart(product.name, selectedSize, quantity, product)
-          }
-          className="w-full bg-natcon-red hover:bg-red-700 text-white py-3 px-4 rounded-xl transition-colors duration-300 font-medium mt-auto"
-        >
-          Add to Cart
-        </button>
+            <button
+              onClick={() =>
+                onAddToCart(product.name, selectedSize, quantity, product)
+              }
+              className="w-full bg-natcon-red hover:bg-red-700 text-white py-3 px-4 rounded-xl transition-colors duration-300 font-medium mt-auto"
+            >
+              Add to Cart
+            </button>
+          </>
+        )}
       </div>
     </div>
   );
