@@ -160,7 +160,7 @@ export default function Store() {
           {/* Title */}
           <div className="mt-10 mb-4 flex items-center justify-center pb-4">
             <Image
-              src="/topics/STORE.png"
+              src="/topics/Store.png"
               alt="Store"
               width={512}
               height={64}
@@ -172,9 +172,9 @@ export default function Store() {
           {merchPacks.length > 0 && (
             <div className="mb-16">
               <div className="text-center mb-8">
-                <h2 className="text-3xl font-bold text-white mb-2">Merch Packs</h2>
+                <h2 className="text-3xl font-bold text-white mb-2">Merch Pack</h2>
                 <p className="text-gray-300">
-                  From කොළඹ streets to wild escapes, our ultimate survival bundle has you covered built for the bold, made for the island.
+                  From Colombo streets to wild escapes, our ultimate survival bundle has you covered built for the bold, made for the island.
                 </p>
               </div>
               <div className="space-y-8 max-w-7xl mx-auto">
