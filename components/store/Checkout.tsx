@@ -78,6 +78,7 @@ export default function Checkout() {
     "Rajarata",
     "Ruhuna",
     "Wayamba",
+    "Other",
   ];
 
   // Redirect if cart is empty
