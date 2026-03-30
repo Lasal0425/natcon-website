@@ -218,9 +218,9 @@ export default function Store() {
           {/* Accessories Section */}
           <div className="mb-12">
             <div className="text-center mb-8">
-              <h2 className="text-3xl font-bold text-white mb-2">Accessories</h2>
+              <h2 className="text-3xl font-bold text-white mb-2">Add-ons</h2>
               <p className="text-gray-300">
-                From bold street pieces to culture-inspired gear, these accessories bring the Lankan edge to every move you make.
+                From bold street pieces to culture-inspired gear, these add-ons bring the Lankan edge to every move you make.
               </p>
             </div>
             <div className={`grid gap-6 sm:grid-cols-1 md:grid-cols-2 ${accessories.length <= 2 ? 'max-w-3xl mx-auto' : 'lg:grid-cols-3 xl:grid-cols-4'}`}>
@@ -342,7 +342,7 @@ function MerchPackCard({
             src={mainImage}
             alt={product.name}
             fill
-            className="object-contain transition-transform duration-300 scale-[2.2]"
+            className="object-contain transition-transform duration-300 scale-[2.2] pointer-events-none"
           />
         </div>
 
@@ -368,7 +368,7 @@ function MerchPackCard({
       </div>
 
       {/* Content section */}
-      <div className="p-6 text-center space-y-6 flex flex-col justify-center w-full lg:w-1/2">
+      <div className="p-6 text-center space-y-6 flex flex-col justify-center w-full lg:w-1/2 relative z-10">
         <div>
           <h3 className="text-2xl font-bold text-white mb-2">{product.name}</h3>
           {product.description && (
@@ -527,7 +527,7 @@ function ProductCard({
             src={mainImage}
             alt={product.name}
             fill
-            className={`object-contain transition-transform duration-300 ${["Pouch", "Tote Bag"].includes(product.name) ? "scale-[1.4]" : ""
+            className={`object-contain transition-transform duration-300 pointer-events-none ${["Pouch", "Tote Bag"].includes(product.name) ? "scale-[1.4]" : ""
               }`}
           />
         </div>
@@ -554,7 +554,7 @@ function ProductCard({
       </div>
 
       {/* Content section */}
-      <div className="p-4 text-center flex flex-col flex-grow space-y-4">
+      <div className="p-4 text-center flex flex-col flex-grow space-y-4 relative z-10">
         <h3 className="text-lg font-semibold text-white">{product.name}</h3>
         {product.type !== 'tshirt' && <p className="text-gray-300 text-xl font-medium">{displayPrice} LKR</p>}
 
