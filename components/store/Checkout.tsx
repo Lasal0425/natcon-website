@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useCart } from "@/contexts/CartContext";
@@ -39,6 +39,16 @@ export default function Checkout() {
     clearCart,
   } = useCart();
 
+  // Ref callback to ensure video loads and plays on client-side navigation
+  const videoRef = useCallback((node: HTMLVideoElement | null) => {
+    if (node) {
+      // Don't call .load() as it can cause a network refresh lag
+      node.play().catch(() => {
+        // Autoplay may be blocked, but muted videos are usually allowed
+      });
+    }
+  }, []);
+
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
@@ -75,10 +85,12 @@ export default function Checkout() {
     return (
       <section className="video-bg-container">
         <video
+          ref={videoRef}
           autoPlay
           loop
           muted
           playsInline
+          preload="auto"
           className="video-bg-video"
         >
           <source src="/background.mp4" type="video/mp4" />
@@ -339,13 +351,15 @@ export default function Checkout() {
     return (
       <section className="video-bg-container">
         <video
+          ref={videoRef}
+          key="checkout-success-bg"
           autoPlay
           loop
           muted
           playsInline
           className="video-bg-video"
         >
-          <source src="/squid-game-bg.webm" type="video/mp4" />
+          <source src="/background.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
 
@@ -377,13 +391,15 @@ export default function Checkout() {
   return (
     <section className="video-bg-container">
       <video
+        ref={videoRef}
+        key="checkout-main-bg"
         autoPlay
         loop
         muted
         playsInline
         className="video-bg-video"
       >
-        <source src="/squid-game-bg.webm" type="video/mp4" />
+        <source src="/background.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 

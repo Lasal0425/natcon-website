@@ -4,7 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { mainPartners, refreshmentsPartners, otherPartners } from "../../constants/Partners";
 
-const COMING_SOON = true;
+const COMING_SOON = false;
 
 export default function PartnersSection() {
   return (
@@ -75,7 +75,7 @@ export default function PartnersSection() {
           /* Partners Sections */
           <div className="max-w-7xl mx-auto space-y-20">
             <PartnersGrid title=" " partners={mainPartners} />
-            <PartnersGrid title="Refreshments Partners" partners={refreshmentsPartners} />
+            {/* <PartnersGrid title="Refreshments Partners" partners={refreshmentsPartners} /> */}
             {/* <PartnersGrid title="Other Partners" partners={otherPartners} /> */}
           </div>
         )}
