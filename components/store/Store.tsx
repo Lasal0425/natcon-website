@@ -196,7 +196,7 @@ export default function Store() {
           {/* T-Shirts Section */}
           <div className="mb-12">
             <div className="text-center mb-8">
-              <h2 className="text-3xl font-bold text-white mb-2">T-Shirts</h2>
+              <h2 className="text-3xl font-bold text-white mb-2">T-Shirt</h2>
               <p className="text-gray-300">
                 Premium tees inspired by Sri Lankan vibes ready for the heat, the hustle, and every challenge you face.
               </p>
