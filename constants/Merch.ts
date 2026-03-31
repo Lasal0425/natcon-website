@@ -19,7 +19,7 @@ export const MERCH_ITEMS: MerchItem[] = [
   {
     name: "Drawstring Bag",
     price: "550",
-    images: ["/merch/drawstring-bag.png"],
+    images: ["/merch/bag.png"],
     type: "accessory"
   },
   {
