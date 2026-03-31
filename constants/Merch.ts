@@ -31,7 +31,7 @@ export const MERCH_ITEMS: MerchItem[] = [
   {
     name: "Merch Pack",
     price: "2200",
-    images: ["/merch/merch-pack01.png"],
+    images: ["/merch/Merch pack.png"],
     type: "pack",
     sizes: ["XS", "S", "M", "L", "XL", "2XL"],
     description: "Includes: Crew Neck Tee x 1, Transparent Wristband x 1, Sticker Pack x 1"
