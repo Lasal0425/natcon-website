@@ -4,7 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { mainPartners, refreshmentsPartners, otherPartners } from "../../constants/Partners";
 
-const COMING_SOON = false;
+const COMING_SOON = true;
 
 export default function PartnersSection() {
   return (
@@ -64,11 +64,11 @@ export default function PartnersSection() {
         {COMING_SOON ? (
           /* Animated Text - Simple version matching Store */
           <div className="text-center font-mono pt-10">
-            <h2 className="text-2xl md:text-4xl font-extrabold tracking-wide text-white animate-pulse">
-              <span className="text-yellow-700">Stay tuned!</span>
+            <h2 className="text-2xl md:text-5xl font-extrabold tracking-wide text-white animate-pulse">
+              <span className="text-natcon-red">Coming Soon!</span>
             </h2>
-            <h2 className="text-2xl md:text-4xl font-extrabold tracking-wide text-white animate-pulse pt-6">
-              Partners will be announced soon.
+            <h2 className="text-xl md:text-3xl font-extrabold tracking-wide text-white/80 animate-pulse pt-8 max-w-2xl mx-auto leading-relaxed">
+              We are currently <span className="text-natcon-red">finalizing</span> our partners. Stay tuned for some exciting announcements!
             </h2>
           </div>
         ) : (
