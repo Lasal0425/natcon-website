@@ -17,6 +17,12 @@ export const MERCH_ITEMS: MerchItem[] = [
     sizes: ["XS", "S", "M", "L", "XL", "2XL"]
   },
   {
+    name: "Radium Wristband",
+    price: "300",
+    images: ["/merch/Wristband.png"],
+    type: "accessory"
+  },
+  {
     name: "Drawstring Bag",
     price: "550",
     images: ["/merch/bag.png"],

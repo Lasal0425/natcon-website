@@ -65,9 +65,9 @@ export default function HeroSection() {
 
       {/* Main Logo Centered */}
       <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
-        <div className="relative w-72 h-72 md:w-[600px] md:h-[600px] lg:w-[800px] lg:h-[800px] xl:w-[1000px] xl:h-[1000px]">
+        <div className="relative w-56 h-56 md:w-[400px] md:h-[400px] lg:w-[600px] lg:h-[600px] xl:w-[800px] xl:h-[800px]">
           <Image
-            src="/log.png"
+            src="/logo.png"
             alt="NatCon 2026 Logo"
             fill
             className="object-contain animate-float"
