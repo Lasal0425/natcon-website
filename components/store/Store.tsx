@@ -391,12 +391,12 @@ function MerchPackCard({
                 View Size Chart
               </button>
             </div>
-            <div className="flex flex-wrap gap-2 justify-center">
+            <div className="flex flex-wrap gap-1 justify-center">
               {product.sizes.map((size) => (
                 <button
                   key={size}
                   onClick={() => setSelectedSize(size)}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${selectedSize === size
+                  className={`px-2.5 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all duration-200 ${selectedSize === size
                     ? "bg-natcon-red text-white shadow-lg scale-105"
                     : "bg-white/10 text-gray-300 hover:bg-white/20 hover:scale-105"
                     }`}
