@@ -223,7 +223,7 @@ export default function Store() {
                 From bold street pieces to culture-inspired gear, these add-ons bring the Lankan edge to every move you make.
               </p>
             </div>
-            <div className={`grid gap-6 sm:grid-cols-1 md:grid-cols-2 ${accessories.length <= 2 ? 'max-w-3xl mx-auto' : 'lg:grid-cols-3 xl:grid-cols-4'}`}>
+            <div className={`grid gap-6 sm:grid-cols-1 md:grid-cols-2 ${accessories.length === 3 ? 'lg:grid-cols-3 max-w-6xl mx-auto' : accessories.length <= 2 ? 'max-w-3xl mx-auto' : 'lg:grid-cols-3 xl:grid-cols-4'}`}>
               {accessories.map((product, index) => (
                 <ProductCard
                   key={index}
@@ -527,7 +527,7 @@ function ProductCard({
             src={mainImage}
             alt={product.name}
             fill
-            className={`object-contain transition-transform duration-300 pointer-events-none ${["Pouch", "Tote Bag"].includes(product.name) ? "scale-[1.4]" : ""
+            className={`object-contain transition-transform duration-300 pointer-events-none ${product.name === "Wristband" ? "scale-[1.6]" : ["Pouch", "Tote Bag"].includes(product.name) ? "scale-[1.4]" : ""
               }`}
           />
         </div>
