@@ -39,7 +39,7 @@ export const MERCH_ITEMS: MerchItem[] = [
     price: "2200",
     images: ["/merch/Merch pack.png"],
     type: "pack",
-    sizes: ["XS", "S", "M", "L", "XL", "2XL"],
+    sizes: ["XS", "S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL" ],
     description: "Includes: Crew Neck Tee x 1, Transparent Wristband x 1, Sticker Pack x 1"
   }
 ];
