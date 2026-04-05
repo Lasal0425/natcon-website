@@ -1,6 +1,6 @@
 export const mainPartners = [
   {
-    name: "Title Parnter",
+    name: "Title Partner",
     logo: "/partners/Ceylinco Life.png",
     link: "https://www.ceylincolife.com/"
   },
@@ -10,13 +10,8 @@ export const mainPartners = [
     link: "https://www.masholdings.com"
   },
   {
-    name: "National Partner",
-    logo: "/partners/Cargills.jpg",
-    link: "https://www.cargillsceylon.com"
-  },
-  {
     name: "Bronze Partner",
-    logo: "/partners/cwit.png",
+    logo: "/partners/cwit01.png",
     link: "https://www.cwit.lk/"
   },
   {

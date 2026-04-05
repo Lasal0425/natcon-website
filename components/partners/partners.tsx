@@ -4,7 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { mainPartners, refreshmentsPartners, otherPartners } from "../../constants/Partners";
 
-const COMING_SOON = true;
+const COMING_SOON = false;
 
 export default function PartnersSection() {
   return (
