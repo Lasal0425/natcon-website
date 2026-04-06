@@ -11,10 +11,10 @@ export interface MerchItem {
 export const MERCH_ITEMS: MerchItem[] = [
   {
     name: "Crew Neck Tee",
-    price: "1600",
+    price: "1800",
     images: ["/merch/Black both.png", "/merch/Black front.png", "/merch/Black back.png"],
     type: "tshirt",
-    sizes: ["XS", "S", "M", "L", "XL", "2XL"]
+    sizes: ["2XS", "XS", "S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"]
   },
   {
     name: "Radium Wristband",
@@ -36,7 +36,7 @@ export const MERCH_ITEMS: MerchItem[] = [
   },
   {
     name: "Merch Pack",
-    price: "2200",
+    price: "2000",
     images: ["/merch/Merch pack.png"],
     type: "pack",
     sizes: ["2XS", "XS", "S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"],
