@@ -220,7 +220,7 @@ export default function Store() {
             <div className="text-center mb-8">
               <h2 className="text-3xl font-bold text-white mb-2">Add-ons</h2>
               <p className="text-gray-300">
-                From bold street pieces to culture-inspired gear, these add-ons bring the Lankan edge to every move you make.
+                From bold street pieces to culture-inspired gear, these add-ons bring the Sri Lankan edge to every move you make.
               </p>
             </div>
             <div className={`grid gap-6 sm:grid-cols-1 md:grid-cols-2 ${accessories.length === 3 ? 'lg:grid-cols-3 max-w-6xl mx-auto' : accessories.length <= 2 ? 'max-w-3xl mx-auto' : 'lg:grid-cols-3 xl:grid-cols-4'}`}>
@@ -555,44 +555,71 @@ function ProductCard({
 
       {/* Content section */}
       <div className="p-4 text-center flex flex-col flex-grow space-y-4 relative z-10">
-        <h3 className="text-lg font-semibold text-white">{product.name}</h3>
-        {product.type !== 'tshirt' && <p className="text-gray-300 text-xl font-medium">{displayPrice} LKR</p>}
+        <h3 className="text-xl font-bold text-white">{product.name}</h3>
+        <p className="text-white text-2xl font-bold">{displayPrice} LKR</p>
+
+        {/* Size Selector */}
+        {product.sizes && (
+          <div className="space-y-3">
+            <div className="flex items-center justify-center gap-2">
+              <label className="text-sm text-gray-300 block font-medium">
+                Size:
+              </label>
+              <button
+                onClick={onOpenSizeChart}
+                className="text-xs text-natcon-green hover:text-natcon-green/80 underline transition-colors duration-200"
+              >
+                View Size Chart
+              </button>
+            </div>
+            <div className="flex flex-wrap gap-1 justify-center">
+              {product.sizes.map((size) => (
+                <button
+                  key={size}
+                  onClick={() => setSelectedSize(size)}
+                  className={`px-2.5 py-1.5 rounded-lg text-xs font-medium transition-all duration-200 ${selectedSize === size
+                    ? "bg-natcon-red text-white shadow-lg scale-105"
+                    : "bg-white/10 text-gray-300 hover:bg-white/20 hover:scale-105"
+                    }`}
+                >
+                  {size}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Quantity Selector */}
-        {product.type !== 'tshirt' && (
-          <>
-            <div className="space-y-2">
-              <label className="text-sm text-gray-300 block">Quantity:</label>
-              <div className="flex items-center justify-center gap-3">
-                <button
-                  onClick={() => handleQuantityChange(false)}
-                  disabled={quantity <= 1}
-                  className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 disabled:opacity-50 disabled:cursor-not-allowed text-white flex items-center justify-center transition-colors duration-200"
-                >
-                  -
-                </button>
-                <span className="text-white font-medium text-lg min-w-[2rem] text-center">
-                  {quantity}
-                </span>
-                <button
-                  onClick={() => handleQuantityChange(true)}
-                  className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors duration-200"
-                >
-                  +
-                </button>
-              </div>
-            </div>
-
+        <div className="space-y-2">
+          <label className="text-sm text-gray-300 block">Quantity:</label>
+          <div className="flex items-center justify-center gap-3">
             <button
-              onClick={() =>
-                onAddToCart(product.name, selectedSize, quantity, product)
-              }
-              className="w-full bg-natcon-red hover:bg-red-700 text-white py-3 px-4 rounded-xl transition-colors duration-300 font-medium mt-auto"
+              onClick={() => handleQuantityChange(false)}
+              disabled={quantity <= 1}
+              className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 disabled:opacity-50 disabled:cursor-not-allowed text-white flex items-center justify-center transition-colors duration-200"
             >
-              Add to Cart
+              -
             </button>
-          </>
-        )}
+            <span className="text-white font-medium text-lg min-w-[2rem] text-center">
+              {quantity}
+            </span>
+            <button
+              onClick={() => handleQuantityChange(true)}
+              className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors duration-200"
+            >
+              +
+            </button>
+          </div>
+        </div>
+
+        <button
+          onClick={() =>
+            onAddToCart(product.name, selectedSize, quantity, product)
+          }
+          className="w-full bg-natcon-red hover:bg-red-700 text-white py-3 px-4 rounded-xl transition-all duration-300 font-bold shadow-lg hover:shadow-xl hover:scale-105 mt-auto"
+        >
+          Add to Cart
+        </button>
       </div>
     </div>
   );
