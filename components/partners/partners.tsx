@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { mainPartners, refreshmentsPartners, otherPartners } from "../../constants/Partners";
+import { mainPartners, giftPartners, otherPartners } from "../../constants/Partners";
 
 const COMING_SOON = false;
 
@@ -75,8 +75,8 @@ export default function PartnersSection() {
           /* Partners Sections */
           <div className="max-w-7xl mx-auto space-y-20">
             <PartnersGrid title=" " partners={mainPartners} />
-            {/* <PartnersGrid title="Refreshments Partners" partners={refreshmentsPartners} /> */}
-            {/* <PartnersGrid title="Other Partners" partners={otherPartners} /> */}
+            <PartnersGrid title="Other Partners" partners={otherPartners} />
+            <PartnersGrid title="Gift Partners" partners={giftPartners} />
           </div>
         )}
       </div>
@@ -87,7 +87,7 @@ export default function PartnersSection() {
 /**
  * Reusable Partners Grid Component
  */
-function PartnersGrid({ title, partners }: { title: string; partners: Array<{ name: string; logo: string; link?: string }> }) {
+function PartnersGrid({ title, partners }: { title: string; partners: Array<{ name: string; role: string; logo: string; link?: string }> }) {
   return (
     <div className="w-full">
       {/* Section Title */}
@@ -113,10 +113,15 @@ function PartnersGrid({ title, partners }: { title: string; partners: Array<{ na
                 </div>
               </div>
 
-              {/* Partner Name */}
-              <p className="text-white/90 text-xs sm:text-sm md:text-base text-center mt-3 max-w-[140px] sm:max-w-[160px] md:max-w-[180px] px-2 font-medium h-10 sm:h-12 flex items-center justify-center leading-tight">
-                {partner.name}
-              </p>
+              {/* Partner Info */}
+              <div className="mt-3 flex flex-col items-center justify-center space-y-1">
+                <p className="text-white font-bold text-xs sm:text-sm md:text-base text-center leading-tight">
+                  {partner.name}
+                </p>
+                <p className="text-natcon-red text-[10px] sm:text-xs md:text-sm text-center font-medium leading-tight">
+                  {partner.role}
+                </p>
+              </div>
             </>
           );
 
