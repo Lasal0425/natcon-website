@@ -3,6 +3,6 @@ export const NAV_LINKS = [
   { name: "About", href: "/#about" },
   { name: "Title Partner", href: "/title-partner" },
   { name: "Partners", href: "/partners" },
-  { name: "Register", href: "/register" },
+  { name: "Rooms", href: "/rooms" },
   { name: "Store", href: "/store" },
 ];
