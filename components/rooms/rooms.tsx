@@ -1112,7 +1112,7 @@ export default function RoomSearch() {
     <section
       className="video-bg-container !px-6 md:!px-12 font-mono"
     >
-      <div className="video-bg-overlay"></div>
+      {/* <div className="video-bg-overlay"></div> */}
 
       <div className="max-w-4xl mx-auto">
         <div className="bg-gray-900 border-2 border-natcon-green hover:border-natcon-red 
